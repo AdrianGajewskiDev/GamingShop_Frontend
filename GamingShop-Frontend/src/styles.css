@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+.nav-link {
+  color: white !important;
+  font-size: 1.6rem;
+}
+.nav-item {
+  margin-left: 5vw;
+}
+
+.navbar-brand {
+  color: red !important;
+  font-size: 2.5rem;
+}
+.navbar-brand span {
+  color: darkgreen;
+}

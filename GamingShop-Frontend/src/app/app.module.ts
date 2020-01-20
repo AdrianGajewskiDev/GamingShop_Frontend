@@ -17,6 +17,8 @@ import { appRoutes } from "../routes";
 import { GameService } from "./shared/game.service";
 import { GameDetailsComponent } from "./game-details/game-details.component";
 import { FooterComponent } from './footer/footer.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { FooterComponent } from './footer/footer.component';
     UserAccountComponent,
     GameItemComponent,
     GameDetailsComponent,
-    FooterComponent
+    FooterComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

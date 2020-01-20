@@ -1,7 +1,46 @@
-<p>{{ game.Title }}</p>
-<p>{{ game.Price }}</p>
-<p>{{ game.Description }}</p>
-<p>{{ game.Producent }}</p>
-<p>{{ game.Platform }}</p>
-<p>{{ game.Type }}</p>
-<p>{{ game.BestSeller }}</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-5  d-flex align-items-center justify-content-center">
+      <img class="img-custom" src="../../assets/img/ACO.png" alt="" />
+    </div>
+    <div class="col-md-7 py-5">
+      <div class="details">
+        <div class="details-container">
+          <div class="detail-item">
+            <h1>{{ game.Title }}</h1>
+          </div>
+          <div class="detail-item">
+            <h3 class="detail-name">Producent:</h3>
+            <h3 class="detail-info">{{ game.Producent }}</h3>
+          </div>
+          <div class="detail-item">
+            <h3 class="detail-name">Type:</h3>
+            <h3 class="detail-info">{{ game.Type }}</h3>
+          </div>
+          <div class="detail-item">
+            <h3 class="detail-name">Platform:</h3>
+            <h3 class="detail-info">{{ game.Platform }}</h3>
+          </div>
+          <div class="detail-item">
+            <h3 class="detail-name">Pegi:</h3>
+            <h3 class="detail-info">{{ game.Pegi }}</h3>
+          </div>
+          <div class="detail-item">
+            <h3 class="detail-name">Date of launch:</h3>
+            <h3 class="detail-info">
+              {{ game.DayOfLaunch }}/{{ game.MonthOfLaunch }}/{{
+                game.YearOfLaunch
+              }}
+            </h3>
+          </div>
+          <div class="detail-item-actions">
+            <div class="detail-btn">
+              <button class="btn btn-success" type="button">Buy</button>
+            </div>
+            <h3 class="detail-price">{{ game.Price }}$</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

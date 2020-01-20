@@ -11,8 +11,18 @@ export class GamesComponent implements OnInit {
   constructor(private service: GameService) {}
 
   games: GameModel[];
-
+  searchQuery: string;
   ngOnInit() {
-    this.service.getGames().subscribe(response => (this.games = response));
+    if (localStorage.getItem("searchQuery") != null)
+      this.searchQuery = JSON.parse(localStorage.getItem("searchQuery"));
+
+    if (this.searchQuery == "" || this.searchQuery == undefined) {
+      this.service.getGames().subscribe(response => (this.games = response));
+    } else {
+      this.service
+        .getGamesBySearchQuery(this.searchQuery)
+        .subscribe(response => (this.games = response));
+    }
+    localStorage.removeItem("searchQuery");
   }
 }

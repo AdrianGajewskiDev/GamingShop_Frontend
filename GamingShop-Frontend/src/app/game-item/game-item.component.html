@@ -3,6 +3,8 @@
   <div class="card-body">
     <h5 class="card-title">{{ gameDetails.Title }}</h5>
     <p class="card-text">{{ gameDetails.Price }} $</p>
-    <a href="#" class="btn btn-primary">Add to Cart</a>
+    <a (click)="goToDetails(gameDetails.ID)" class="btn btn-primary"
+      >Add to Cart</a
+    >
   </div>
 </div>

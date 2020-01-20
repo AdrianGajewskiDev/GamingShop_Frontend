@@ -13,4 +13,8 @@ export class GameService {
   getGamesBySearchQuery(query: string) {
     return this.http.get<GameModel[]>(this.URL + "/Games/Search/" + query);
   }
+
+  getGameByID(id: number) {
+    return this.http.get<GameModel>(this.URL + "/Games/GetGame/" + id);
+  }
 }

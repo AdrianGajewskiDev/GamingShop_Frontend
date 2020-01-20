@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-game-item",
@@ -8,7 +9,11 @@ import { Component, OnInit, Input } from "@angular/core";
 export class GameItemComponent implements OnInit {
   @Input() gameDetails;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
+
+  goToDetails(id: number): void {
+    this.router.navigate(["details", id]);
+  }
 }

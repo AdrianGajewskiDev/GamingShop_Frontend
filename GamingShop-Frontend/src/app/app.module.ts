@@ -14,6 +14,7 @@ import { GameItemComponent } from "./game-item/game-item.component";
 import { appRoutes } from "../routes";
 
 import { GameService } from "./shared/game.service";
+import { GameDetailsComponent } from './game-details/game-details.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { GameService } from "./shared/game.service";
     NavbarComponent,
     GamesComponent,
     UserAccountComponent,
-    GameItemComponent
+    GameItemComponent,
+    GameDetailsComponent
   ],
   imports: [
     BrowserModule,

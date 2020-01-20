@@ -16,6 +16,7 @@ import { appRoutes } from "../routes";
 
 import { GameService } from "./shared/game.service";
 import { GameDetailsComponent } from "./game-details/game-details.component";
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { GameDetailsComponent } from "./game-details/game-details.component";
     GamesComponent,
     UserAccountComponent,
     GameItemComponent,
-    GameDetailsComponent
+    GameDetailsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

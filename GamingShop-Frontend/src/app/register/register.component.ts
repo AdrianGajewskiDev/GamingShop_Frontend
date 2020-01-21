@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit {
           ]
         ],
         username: ["", [Validators.required]],
-        phoneNumber: ["", [Validators.required]],
+        phoneNumber: ["", [Validators.required, Validators.minLength(9)]],
         password: ["", [Validators.required, Validators.minLength(8)]],
         confirmPassword: ["", [Validators.required, Validators.minLength(8)]]
       },
@@ -50,6 +50,5 @@ export class RegisterComponent implements OnInit {
       PhoneNumber: this.registerForm.get("phoneNumber").value
     };
     this.service.registerUser(model).subscribe();
-    console.log("submiting!!!!!!!!!!!!!!!!!!!!");
   }
 }

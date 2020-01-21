@@ -35,7 +35,7 @@
 .form .input .input-box label {
   display: block;
   color: #868686;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
   font-size: 18px;
 }
 .form .input .input-box input {
@@ -54,13 +54,13 @@
 }
 
 .form .input .input-box input[type="submit"] {
-  margin-top: 20px;
+  margin-top: 15px;
   box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.05),
     5px 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 .form .input .input-box input[type="submit"]:active {
-  margin-top: 20px;
+  margin-top: 15px;
   box-shadow: inset -5px -5px 10px rgba(255, 255, 255, 0.05),
     inset 5px 5px 15px rgba(0, 0, 0, 0.5);
 }

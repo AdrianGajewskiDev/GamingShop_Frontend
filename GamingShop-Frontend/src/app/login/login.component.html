@@ -1,14 +1,32 @@
 <div class="container-custom">
-  <form class="form">
+  <form class="form" [formGroup]="loginForm">
     <h2>Login</h2>
     <div class="input">
       <div class="input-box">
         <label>Username</label>
-        <input type="text" />
+        <input type="text" formControlName="username" />
+        <p
+          class="text-danger"
+          *ngIf="loginForm.get('username').errors?.required"
+        >
+          Username is required
+        </p>
       </div>
       <div class="input-box">
         <label>Password</label>
-        <input type="password" />
+        <input type="password" formControlName="password" />
+        <p
+          class="text-danger"
+          *ngIf="loginForm.get('password').errors?.required"
+        >
+          Password is required
+        </p>
+        <p
+          class="text-danger"
+          *ngIf="loginForm.get('password').errors?.minlength"
+        >
+          Password must be atleast 8 characters long
+        </p>
       </div>
       <div class="input-box">
         <input type="submit" value="Sign In" />

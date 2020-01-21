@@ -11,14 +11,15 @@ import { NavbarComponent } from "./navbar/navbar.component";
 import { GamesComponent } from "./games/games.component";
 import { UserAccountComponent } from "./user/user/user-account.component";
 import { GameItemComponent } from "./game-item/game-item.component";
+import { GameDetailsComponent } from "./game-details/game-details.component";
+import { FooterComponent } from "./footer/footer.component";
+import { LoginComponent } from "./login/login.component";
+import { RegisterComponent } from "./register/register.component";
 
 import { appRoutes } from "../routes";
 
 import { GameService } from "./shared/game.service";
-import { GameDetailsComponent } from "./game-details/game-details.component";
-import { FooterComponent } from './footer/footer.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { UserService } from "./shared/user.service";
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { RegisterComponent } from './register/register.component';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [GameService],
+  providers: [GameService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -7,6 +7,9 @@ import {
 } from "@angular/forms";
 
 import { PasswordMisMatch } from "../shared/customValidators";
+import { UserService } from "../shared/user.service";
+import { UserModel } from "../shared/user.model";
+import { PathLocationStrategy } from "@angular/common";
 
 @Component({
   selector: "app-register",
@@ -14,7 +17,7 @@ import { PasswordMisMatch } from "../shared/customValidators";
   styleUrls: ["./register.component.css"]
 })
 export class RegisterComponent implements OnInit {
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private service: UserService) {}
 
   @Input() passwordMisMatch;
 
@@ -30,10 +33,23 @@ export class RegisterComponent implements OnInit {
             Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$")
           ]
         ],
+        username: ["", [Validators.required]],
+        phoneNumber: ["", [Validators.required]],
         password: ["", [Validators.required, Validators.minLength(8)]],
         confirmPassword: ["", [Validators.required, Validators.minLength(8)]]
       },
       { validators: PasswordMisMatch }
     );
+  }
+
+  onSubmit(): void {
+    var model: UserModel = {
+      Username: this.registerForm.get("username").value,
+      Email: this.registerForm.get("email").value,
+      Password: this.registerForm.get("password").value,
+      PhoneNumber: this.registerForm.get("phoneNumber").value
+    };
+    this.service.registerUser(model).subscribe();
+    console.log("submiting!!!!!!!!!!!!!!!!!!!!");
   }
 }

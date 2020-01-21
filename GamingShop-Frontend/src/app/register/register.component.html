@@ -1,18 +1,51 @@
 <div class="container-custom">
-  <form class="form">
+  <form class="form" [formGroup]="registerForm">
     <h2>Create Account</h2>
     <div class="input">
       <div class="input-box">
-        <label>Username or Email</label>
-        <input type="text" />
+        <label>Email</label>
+        <input type="email" formControlName="email" />
+        <p
+          class="text-danger"
+          *ngIf="registerForm.get('email').errors?.required"
+        >
+          Email addres is required
+        </p>
+        <p
+          class="text-danger"
+          *ngIf="registerForm.get('email').errors?.pattern"
+        >
+          Invalid Email addres
+        </p>
       </div>
       <div class="input-box">
         <label>Password</label>
-        <input type="password" />
+        <input type="password" formControlName="password" />
+        <p
+          class="text-danger"
+          *ngIf="registerForm.get('password').errors?.required"
+        >
+          Password is required
+        </p>
+        <p
+          class="text-danger"
+          *ngIf="registerForm.get('password').errors?.minlength"
+        >
+          Password must be atleast 8 characters long
+        </p>
       </div>
       <div class="input-box">
         <label>Confirm Password</label>
-        <input type="password" />
+        <input type="password" formControlName="confirmPassword" />
+        <p
+          class="text-danger"
+          *ngIf="registerForm.get('password').errors?.required"
+        >
+          Password is required
+        </p>
+        <p class="text-danger" *ngIf="registerForm.errors?.passwordMisMatch">
+          Passwords does not match
+        </p>
       </div>
       <div class="input-box">
         <input type="submit" value="Create Account" />

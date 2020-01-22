@@ -1,7 +1,8 @@
 <div class="container-custom">
-  <form class="form" [formGroup]="loginForm">
+  <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <h2>Login</h2>
     <div class="input">
+      <p class="text-danger" *ngIf="showError">Incorect Username or Password</p>
       <div class="input-box">
         <label>Username</label>
         <input type="text" formControlName="username" />

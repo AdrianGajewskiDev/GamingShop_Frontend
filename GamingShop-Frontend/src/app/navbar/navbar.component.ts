@@ -25,4 +25,9 @@ export class NavbarComponent implements OnInit {
     localStorage.setItem("searchQuery", JSON.stringify(this.searchQuery));
     window.location.reload();
   }
+
+  onLogout() {
+    console.log("Removed token: " + localStorage.getItem("token"));
+    localStorage.removeItem("token");
+  }
 }

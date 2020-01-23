@@ -44,7 +44,7 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(): void {
     var model: UserModel = {
-      Username: this.registerForm.get("username").value,
+      UserName: this.registerForm.get("username").value,
       Email: this.registerForm.get("email").value,
       Password: this.registerForm.get("password").value,
       PhoneNumber: this.registerForm.get("phoneNumber").value

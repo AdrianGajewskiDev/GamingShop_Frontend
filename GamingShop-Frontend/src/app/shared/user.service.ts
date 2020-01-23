@@ -27,4 +27,8 @@ export class UserService {
   login(model: UserLoginModel) {
     return this.http.post<UserLoginModel>(this.URL + "/User/login", model);
   }
+
+  getUserProfile() {
+    return this.http.get<UserModel>(this.URL + "/UserProfile");
+  }
 }

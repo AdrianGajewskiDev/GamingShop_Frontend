@@ -1,5 +1,5 @@
-export interface UserModel {
-  Username: string;
+export class UserModel {
+  UserName: string;
   Email: string;
   PhoneNumber: string;
   Password: string;

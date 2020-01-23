@@ -2,7 +2,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
 
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { ReactiveFormsModule } from "@angular/forms";
 import { FormsModule } from "@angular/forms";
 
@@ -20,6 +20,7 @@ import { appRoutes } from "../routes";
 
 import { GameService } from "./shared/game.service";
 import { UserService } from "./shared/user.service";
+import { AuthorizationInterceptor } from "./shared/authorization.interceptor";
 
 @NgModule({
   declarations: [
@@ -40,7 +41,15 @@ import { UserService } from "./shared/user.service";
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [GameService, UserService],
+  providers: [
+    GameService,
+    UserService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthorizationInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

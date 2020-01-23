@@ -42,6 +42,7 @@
   height: 10%;
   margin-top: 2%;
   border-bottom: 5px solid black;
+  color: white;
 }
 
 .detail-name {
@@ -49,6 +50,7 @@
   display: flex;
   align-items: center;
   font-size: 1.5rem;
+  color: white;
 }
 
 .detail-info {
@@ -57,6 +59,7 @@
   align-items: center;
   justify-content: flex-end;
   font-size: 1.5rem;
+  color: white;
 }
 
 .detail-item h1 {
@@ -76,6 +79,8 @@
 }
 
 .detail-price {
+  color: white;
+
   width: 40%;
   display: flex;
   justify-content: center;

@@ -1,6 +1,49 @@
-<div class="text-white">
-  <p>{{ userData.UserName }}</p>
-  <p>{{ userData.Email }}</p>
-  <p>{{ userData.PhoneNumber }}</p>
-  <p>{{ userData.Password }}</p>
+<div class="account-container">
+  <div class="account-img">
+    <img src="/Icons/user.png" />
+  </div>
+  <div class="account-details">
+    <div class="account-details-item">
+      <h2 class="center-text text-left account-details-item-title">
+        UserName:
+      </h2>
+      <input
+        id="username-text"
+        class="center-text account-details-item-value"
+        [value]="userData.UserName"
+      />
+      <button id="btn-username" class="account-details-item-btn" type="submit">
+        Edit
+      </button>
+    </div>
+    <div class="account-details-item">
+      <h2 class="center-text text-left account-details-item-title">Email:</h2>
+      <input
+        id="email-text"
+        class="center-text account-details-item-value email"
+        [value]="userData.Email"
+      />
+      <button id="btn-email" class="account-details-item-btn" type="submit">
+        Edit
+      </button>
+    </div>
+    <div class="account-details-item">
+      <h2 class="center-text text-left account-details-item-title">
+        Phone number:
+      </h2>
+      <input
+        id="phone-text"
+        class="center-text account-details-item-value"
+        value="507337369"
+        [value]="userData.PhoneNumber"
+      />
+      <button id="btn-phone" class="account-details-item-btn" type="submit">
+        Edit
+      </button>
+    </div>
+    <div class="btns-container">
+      <div class="btn-item"><a href="#">Go To Cart</a></div>
+      <div id="save-btn" class="btn-item"><a href="#">Save Changes</a></div>
+    </div>
+  </div>
 </div>

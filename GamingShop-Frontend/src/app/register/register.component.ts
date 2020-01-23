@@ -9,7 +9,8 @@ import {
 import { PasswordMisMatch } from "../shared/customValidators";
 import { UserService } from "../shared/user.service";
 import { UserModel } from "../shared/user.model";
-import { PathLocationStrategy } from "@angular/common";
+import { Router } from "@angular/router";
+import { UserLoginModel } from "../shared/user-login.model";
 
 @Component({
   selector: "app-register",
@@ -17,7 +18,11 @@ import { PathLocationStrategy } from "@angular/common";
   styleUrls: ["./register.component.css"]
 })
 export class RegisterComponent implements OnInit {
-  constructor(private fb: FormBuilder, private service: UserService) {}
+  constructor(
+    private fb: FormBuilder,
+    private service: UserService,
+    private router: Router
+  ) {}
 
   @Input() passwordMisMatch;
 
@@ -41,8 +46,11 @@ export class RegisterComponent implements OnInit {
       { validators: PasswordMisMatch }
     );
   }
+  delay(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
 
-  onSubmit(): void {
+  async onSubmit() {
     var model: UserModel = {
       UserName: this.registerForm.get("username").value,
       Email: this.registerForm.get("email").value,
@@ -50,5 +58,20 @@ export class RegisterComponent implements OnInit {
       PhoneNumber: this.registerForm.get("phoneNumber").value
     };
     this.service.registerUser(model).subscribe();
+
+    var userLoginModel: UserLoginModel = {
+      Username: model.UserName,
+      Password: model.Password
+    };
+
+    await this.delay(2000);
+    //if user successfully created then login him
+    this.service.login(userLoginModel).subscribe((res: any) => {
+      localStorage.setItem("token", res.token);
+      console.log("Setting token: " + res.token);
+      this.service.isUserLoggedIn = true;
+    });
+
+    this.router.navigateByUrl("/games");
   }
 }

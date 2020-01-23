@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
         this.showError = false;
         localStorage.setItem("token", res.token);
         this.router.navigateByUrl("/games");
-        console.log(localStorage.getItem("token"));
+        this.service.isUserLoggedIn = true;
       },
       error => {
         if (error.status == "400") this.showError = true;

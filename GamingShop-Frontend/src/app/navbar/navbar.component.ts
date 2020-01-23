@@ -1,12 +1,14 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnChanges } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
+import { ConsoleReporter } from "jasmine";
+import { UserService } from "../shared/user.service";
 @Component({
   selector: "app-navbar",
   templateUrl: "./navbar.component.html",
   styles: []
 })
 export class NavbarComponent implements OnInit {
-  constructor() {}
+  constructor(private service: UserService) {}
   searchForm: FormGroup;
   searchQuery: string;
   search() {}
@@ -15,6 +17,8 @@ export class NavbarComponent implements OnInit {
     this.searchForm = new FormGroup({
       searchInput: new FormControl()
     });
+
+    console.log(this.service.isUserLoggedIn);
   }
 
   updateSearchQuery(): void {
@@ -27,7 +31,7 @@ export class NavbarComponent implements OnInit {
   }
 
   onLogout() {
-    console.log("Removed token: " + localStorage.getItem("token"));
     localStorage.removeItem("token");
+    window.location.reload();
   }
 }

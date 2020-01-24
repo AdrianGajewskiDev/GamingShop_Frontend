@@ -33,4 +33,22 @@ export class UserService {
   getUserProfile() {
     return this.http.get<UserModel>(this.URL + "/UserProfile");
   }
+
+  updateUsername(username: string) {
+    return this.http.post(
+      this.URL + "/UserProfile/UpdateUsername/" + username,
+      null
+    );
+  }
+
+  updateEmail(email: string) {
+    return this.http.post(this.URL + "/UserProfile/UpdateEmail/" + email, null);
+  }
+
+  updatePhoneNumber(phoneNumber: string) {
+    return this.http.post(
+      this.URL + "/UserProfile/UpdatePhoneNumber/" + phoneNumber,
+      null
+    );
+  }
 }

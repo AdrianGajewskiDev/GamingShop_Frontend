@@ -1,200 +1,111 @@
-.account-container {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-areas: "img details";
-  height: 90vh;
-  background-color: var(--second-background-color);
+img {
+  min-width: 90%;
+  min-height: 50%;
+}
+#account-details-container {
+  padding: 100px;
 }
 
-.account-img {
+.account-details-content {
   display: flex;
-  justify-content: center;
-}
-
-.account-img img {
-  height: 50%;
-  width: 70%;
-  margin-top: 25%;
-}
-
-.account-details {
-  display: block;
-  padding-top: 12.5%;
+  flex-direction: column;
+  background: #131419;
+  width: 100%;
+  height: 60vh;
+  padding: 20px;
+  border-radius: 25px;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.05),
+    5px 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 .account-details-item {
   display: flex;
-  width: 90%;
-  height: 10vh;
-  margin-top: 10px;
-  border: 2px solid var(--main-background-color);
-}
-
-.center-text {
-  display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  height: 5vh;
+  margin-bottom: 15px;
 }
 
-.text-left {
-  justify-content: flex-start !important;
-  margin-left: 5px;
-}
-
-.account-details-item-title {
-  width: 30%;
-}
-
-.account-details-item-value {
+.account-details-item label {
   width: 40%;
-  background-color: transparent;
-  text-align: center;
-  font-size: 1.5rem;
-}
-
-.account-details-item-btn {
-  width: 30%;
-}
-
-.account-details-item button {
-  width: 150px;
-  height: 50%;
-  margin-left: 50px;
-  margin-top: 20px;
-  border-radius: 25px;
-  border-style: none;
-  font-size: 1.3rem;
-}
-
-.account-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 30%;
-  height: 10vh;
-  padding-top: 20px;
-}
-
-.account-btn a {
-  font-size: 2.5rem;
-  width: 100%;
   height: 100%;
-  background-color: var(--main-background-color);
-  text-align: center;
-  border-radius: 25px;
-  text-decoration: none;
-  color: var(--second-background-color);
+  display: block;
+  color: #868686;
+  margin-bottom: 5px;
+  font-size: 25px;
 }
 
-.btns-container {
-  display: flex;
-  width: 90%;
-  height: 10vh;
-}
-
-.btn-item {
-  display: flex;
-  width: 50%;
+.account-details-item input {
   height: 100%;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.btn-item a {
-  height: 50%;
   width: 60%;
-  font-size: 1.5rem;
-  background-color: var(--main-background-color);
-  border-radius: 25px;
-  text-decoration: none;
+  background: #131419;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  padding: 5px 15px;
+  color: #fff;
+  font-size: 18px;
+  color: #03a9f4;
+  box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.1),
+    inset 2px 2px 6px rgba(0, 0, 0, 0.8);
+}
+.buttons {
+  width: 100%;
+  height: 20vh;
 }
 
-#save-btn {
-  visibility: hidden;
+.buttons-group {
+  padding-top: 10px;
+  display: flex;
+  width: 100%;
+  height: 5vh;
+}
+.buttons-group button {
+  background: #131419;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  padding: 5px 15px;
+  color: #fff;
+  font-size: 18px;
+  color: #03a9f4;
+  box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.1),
+    2px 2px 6px rgba(0, 0, 0, 0.8);
 }
 
-#save-btn a {
-  background-color: green !important;
+.buttons-group button:active {
+  box-shadow: inset -5px -5px 10px rgba(255, 255, 255, 0.05),
+    inset 5px 5px 15px rgba(0, 0, 0, 0.5);
 }
 
-.show-save-btn {
-  visibility: visible !important;
+.buttons-group button:nth-child(1) {
+  width: 50%;
+  margin-right: 5px;
+}
+.buttons-group button:nth-child(2) {
+  width: 50%;
 }
 
-@media only screen and (max-width: 768px) {
-  .account-container {
-    display: block;
-    height: 100%;
-    background-color: var(--second-background-color);
-  }
-  .account-details {
-    padding-left: 10%;
-    background-color: var(--second-background-color);
-    display: block;
-  }
-  .account-img img {
-    height: 50%;
-    width: 70%;
-    margin-top: 10%;
-  }
-
-  .account-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40%;
-    height: 10vh;
-    padding-top: 20px;
-  }
+.btn-save-changes {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding-right: 10px;
 }
 
-@media only screen and (max-width: 360px) {
-  .account-details-item-title {
-    width: 100%;
-  }
+.btn-save-changes button {
+  background: #131419;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  padding: 5px 15px;
+  color: #fff;
+  font-size: 18px;
+  color: #03a9f4;
+  box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.1),
+    2px 2px 6px rgba(0, 0, 0, 0.8);
+}
 
-  .account-details-item-value {
-    margin-top: 20px;
-
-    width: 100%;
-  }
-
-  .account-details-item-btn {
-    width: 100%;
-  }
-
-  .account-details-item {
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    height: 20vh;
-    margin-top: 20px;
-    border: 2px solid var(--main-background-color);
-  }
-
-  .text-left {
-    justify-content: center !important;
-    margin-left: 5px;
-  }
-
-  .account-details-item-btn {
-    margin-top: 20px;
-    width: 30%;
-  }
-
-  .account-details-item button {
-    width: 150px;
-    height: 20%;
-    margin-left: 70px;
-    margin-top: 20px;
-    border-radius: 25px;
-    border-style: none;
-    font-size: 1.3rem;
-  }
-
-  .email {
-    font-size: 20px !important;
-  }
+.showSaveBtn {
+  display: flex !important;
 }

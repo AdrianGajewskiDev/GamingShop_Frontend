@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { UserService } from "src/app/shared/user.service";
 import { UserModel } from "src/app/shared/user.model";
+import { FormControl, FormBuilder, FormGroup } from "@angular/forms";
 
 @Component({
   selector: "app-user-account",
@@ -9,13 +10,21 @@ import { UserModel } from "src/app/shared/user.model";
 })
 export class UserAccountComponent implements OnInit {
   userData: UserModel = new UserModel();
-
-  constructor(private service: UserService) {}
+  showSaveChangesBtn = false;
+  formData: FormGroup;
+  constructor(private service: UserService, private fb: FormBuilder) {}
 
   ngOnInit() {
     this.userData = this.getUserData();
 
-    console.log(this.userData);
+    this.formData = this.fb.group({
+      Username: [""],
+      Email: [""],
+      PhoneNumber: [""]
+    });
+  }
+  toggleBtn() {
+    this.showSaveChangesBtn = true;
   }
 
   getUserData(): UserModel {
@@ -32,5 +41,40 @@ export class UserAccountComponent implements OnInit {
         )
       );
     return data;
+  }
+  delay(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+  async onBlurMethod() {
+    await this.delay(100);
+    this.showSaveChangesBtn = false;
+  }
+
+  saveChanges() {
+    console.log("here");
+    let data_Username = this.formData.get("Username").value;
+    let data_Email = this.formData.get("Email").value;
+    let data_PhoneNumber = this.formData.get("PhoneNumber").value;
+
+    if (data_Username != "" && this.userData.UserName != data_Username) {
+      this.service.updateUsername(data_Username).subscribe(res => {
+        window.location.reload();
+      });
+    }
+
+    if (data_Email != "" && this.userData.Email != data_Email) {
+      this.service.updateEmail(data_Email).subscribe(res => {
+        window.location.reload();
+      });
+    }
+
+    if (
+      data_PhoneNumber != "" &&
+      this.userData.PhoneNumber != data_PhoneNumber
+    ) {
+      this.service.updatePhoneNumber(data_PhoneNumber).subscribe(res => {
+        window.location.reload();
+      });
+    }
   }
 }

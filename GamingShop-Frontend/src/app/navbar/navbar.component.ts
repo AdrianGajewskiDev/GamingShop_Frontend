@@ -1,14 +1,14 @@
 import { Component, OnInit, OnChanges } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
-import { ConsoleReporter } from "jasmine";
 import { UserService } from "../shared/user.service";
+import { Router } from "@angular/router";
 @Component({
   selector: "app-navbar",
   templateUrl: "./navbar.component.html",
   styles: []
 })
 export class NavbarComponent implements OnInit {
-  constructor(private service: UserService) {}
+  constructor(private service: UserService, private router: Router) {}
   searchForm: FormGroup;
   searchQuery: string;
   search() {}
@@ -26,8 +26,13 @@ export class NavbarComponent implements OnInit {
   }
 
   onSubmit(): void {
-    localStorage.setItem("searchQuery", JSON.stringify(this.searchQuery));
-    window.location.reload();
+    if (this.router.url == "/games" || this.router.url == "/") {
+      localStorage.setItem("searchQuery", JSON.stringify(this.searchQuery));
+      window.location.reload();
+    } else {
+      localStorage.setItem("searchQuery", JSON.stringify(this.searchQuery));
+      this.router.navigateByUrl("/games");
+    }
   }
 
   onLogout() {

@@ -1,49 +1,63 @@
-<div class="account-container">
-  <div class="account-img">
-    <img src="/Icons/user.png" />
-  </div>
-  <div class="account-details">
-    <div class="account-details-item">
-      <h2 class="center-text text-left account-details-item-title">
-        UserName:
-      </h2>
-      <input
-        id="username-text"
-        class="center-text account-details-item-value"
-        [value]="userData.UserName"
+<div class="container-fluid">
+  <div class="row" style="height: 83vh;">
+    <div class="col-md-3 d-flex align-items-center justify-content-center">
+      <img
+        src="../../../assets/img/user.png
+      "
+        alt=""
       />
-      <button id="btn-username" class="account-details-item-btn" type="submit">
-        Edit
-      </button>
     </div>
-    <div class="account-details-item">
-      <h2 class="center-text text-left account-details-item-title">Email:</h2>
-      <input
-        id="email-text"
-        class="center-text account-details-item-value email"
-        [value]="userData.Email"
-      />
-      <button id="btn-email" class="account-details-item-btn" type="submit">
-        Edit
-      </button>
-    </div>
-    <div class="account-details-item">
-      <h2 class="center-text text-left account-details-item-title">
-        Phone number:
-      </h2>
-      <input
-        id="phone-text"
-        class="center-text account-details-item-value"
-        value="507337369"
-        [value]="userData.PhoneNumber"
-      />
-      <button id="btn-phone" class="account-details-item-btn" type="submit">
-        Edit
-      </button>
-    </div>
-    <div class="btns-container">
-      <div class="btn-item"><a href="#">Go To Cart</a></div>
-      <div id="save-btn" class="btn-item"><a href="#">Save Changes</a></div>
-    </div>
+    <form
+      (ngSubmit)="saveChanges()"
+      [formGroup]="formData"
+      class="col-md-9"
+      id="account-details-container"
+    >
+      <div class="account-details-content">
+        <div class="account-details-item">
+          <label for="Username">Username</label>
+          <input
+            type="text"
+            [value]="userData.UserName"
+            formControlName="Username"
+            (focus)="toggleBtn()"
+            (blur)="onBlurMethod()"
+          />
+        </div>
+        <div class="account-details-item">
+          <label for="Username">Email</label>
+          <input
+            type="text"
+            [value]="userData.Email"
+            formControlName="Email"
+            (focus)="toggleBtn()"
+            (blur)="onBlurMethod()"
+          />
+        </div>
+        <div class="account-details-item">
+          <label for="Username">Phone number</label>
+          <input
+            type="text"
+            [value]="userData.PhoneNumber"
+            formControlName="PhoneNumber"
+            (focus)="toggleBtn()"
+            (blur)="onBlurMethod()"
+          />
+        </div>
+        <div class="account-details-item">
+          <label for="Username">Password</label>
+          <input type="password" [value]="userData.Password" />
+        </div>
+        <div class="buttons">
+          <div *ngIf="showSaveChangesBtn" class="btn-save-changes">
+            <button type="submit">Save Changes</button>
+          </div>
+          <div class="buttons-group">
+            <button>Show Cart</button>
+            <button>Latest Orders</button>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
 </div>

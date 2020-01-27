@@ -21,6 +21,7 @@ import { appRoutes } from "../routes";
 import { GameService } from "./shared/game.service";
 import { UserService } from "./shared/user.service";
 import { AuthorizationInterceptor } from "./shared/authorization.interceptor";
+import { EmailConfirmationComponent } from './email-confirmation/email-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AuthorizationInterceptor } from "./shared/authorization.interceptor";
     GameDetailsComponent,
     FooterComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    EmailConfirmationComponent
   ],
   imports: [
     BrowserModule,

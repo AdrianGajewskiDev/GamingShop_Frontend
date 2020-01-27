@@ -37,7 +37,8 @@ export class UserAccountComponent implements OnInit {
           (data.UserName = res.UserName),
           (data.Email = res.Email),
           (data.Password = res.Password),
-          (data.PhoneNumber = res.PhoneNumber)
+          (data.PhoneNumber = res.PhoneNumber),
+          (data.EmailConfirmed = res.EmailConfirmed)
         )
       );
     return data;

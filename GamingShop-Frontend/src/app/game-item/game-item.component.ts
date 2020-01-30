@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Router } from "@angular/router";
+import { CartService } from "../shared/cart.service";
 
 @Component({
   selector: "app-game-item",
@@ -9,11 +10,17 @@ import { Router } from "@angular/router";
 export class GameItemComponent implements OnInit {
   @Input() gameDetails;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private service: CartService) {}
 
   ngOnInit() {}
 
   goToDetails(id: number): void {
     this.router.navigate(["details", id]);
+  }
+
+  addToCart() {
+    this.service
+      .addToCart(this.gameDetails.ID)
+      .subscribe(res => console.log("OK"));
   }
 }

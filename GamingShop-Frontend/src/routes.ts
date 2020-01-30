@@ -6,6 +6,7 @@ import { LoginComponent } from "./app/login/login.component";
 import { RegisterComponent } from "./app/register/register.component";
 import { AuthenticationGuard } from "./app/shared/authentication.guard";
 import { EmailConfirmationComponent } from "./app/email-confirmation/email-confirmation.component";
+import { CartComponent } from "./app/cart/cart.component";
 
 export const appRoutes: Routes = [
   {
@@ -36,5 +37,10 @@ export const appRoutes: Routes = [
   {
     path: "EmailConfirmation",
     component: EmailConfirmationComponent
+  },
+  {
+    path: "cart",
+    component: CartComponent,
+    canActivate: [AuthenticationGuard]
   }
 ];

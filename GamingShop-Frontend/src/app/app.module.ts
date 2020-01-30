@@ -20,8 +20,10 @@ import { appRoutes } from "../routes";
 
 import { GameService } from "./shared/game.service";
 import { UserService } from "./shared/user.service";
+import { CartService } from "./shared/cart.service";
 import { AuthorizationInterceptor } from "./shared/authorization.interceptor";
-import { EmailConfirmationComponent } from './email-confirmation/email-confirmation.component';
+import { EmailConfirmationComponent } from "./email-confirmation/email-confirmation.component";
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { EmailConfirmationComponent } from './email-confirmation/email-confirmat
     FooterComponent,
     LoginComponent,
     RegisterComponent,
-    EmailConfirmationComponent
+    EmailConfirmationComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +49,7 @@ import { EmailConfirmationComponent } from './email-confirmation/email-confirmat
   providers: [
     GameService,
     UserService,
+    CartService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthorizationInterceptor,

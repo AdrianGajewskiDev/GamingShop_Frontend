@@ -1,0 +1,123 @@
+#main-basket {
+  padding: 10px;
+}
+
+.basket-container {
+  display: block;
+  height: 100%;
+  background-color: var(--second-background-color);
+}
+
+.basket-item {
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  border: 2px solid var(--main-background-color);
+  margin-bottom: 10px;
+  transition: all 0.3s ease-in-out;
+  background-color: #03a9f4;
+}
+
+.basket-item:hover {
+  background-color: grey;
+}
+
+.basket-game {
+  border-right: 2px solid var(--main-background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.basket-game-title {
+  width: 30%;
+  font-size: 1.7rem;
+}
+
+.basket-game-title a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.basket-game-platform {
+  width: 20%;
+  font-size: 1.5rem;
+}
+
+.basket-game-producent {
+  width: 20%;
+  font-size: 1.5rem;
+}
+
+.basket-game-btn {
+  border-right: none !important;
+  width: 30%;
+  font-size: 1.5rem;
+}
+
+.basket-game-btn a {
+  width: 50%;
+  height: 50%;
+  background-color: var(--main-background-color);
+  border-radius: 25px;
+  text-align: center;
+  color: var(--second-background-color);
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 360px) {
+  .basket-item {
+    width: 100%;
+    height: 20vh;
+    display: block;
+    border: 2px solid var(--main-background-color);
+    margin-bottom: 10px;
+    transition: all 0.3s ease-in-out;
+  }
+  .basket-game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-bottom: 5px;
+    border-bottom: 2px solid var(--main-background-color);
+  }
+
+  .basket-game-title {
+    width: 100%;
+    font-size: 1.7rem;
+  }
+
+  .basket-game-title a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .basket-game-platform {
+    width: 100%;
+    font-size: 1.5rem;
+  }
+
+  .basket-game-producent {
+    width: 100%;
+    font-size: 1.5rem;
+  }
+
+  .basket-game-btn {
+    border-right: none !important;
+    width: 100%;
+    font-size: 1.5rem;
+  }
+
+  .basket-game-btn a {
+    width: 50%;
+    height: 50%;
+    background-color: var(--main-background-color);
+    border-radius: 25px;
+    text-align: center;
+    color: var(--second-background-color);
+    text-decoration: none;
+  }
+}

@@ -3,5 +3,5 @@ export class UserModel {
   Email: string;
   PhoneNumber: string;
   Password: string;
-  EmailConfirmed: boolean;
+  EmailConfirmed?: boolean;
 }

@@ -1,0 +1,18 @@
+<main id="main-basket">
+  <div class="basket-container">
+    <div class="basket-item" *ngFor="let game of cartItems">
+      <div class="basket-game basket-game-title">
+        <a (click)="goToGameDetails(game.ID)">{{ game.Title }}</a>
+      </div>
+      <div class="basket-game basket-game-platform">
+        <h3>{{ game.Platform }}</h3>
+      </div>
+      <div class="basket-game basket-game-producent">
+        <h3>{{ game.Price }} $</h3>
+      </div>
+      <div class="basket-game basket-game-btn">
+        <a href="#">Remove</a>
+      </div>
+    </div>
+  </div>
+</main>

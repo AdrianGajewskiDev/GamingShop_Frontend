@@ -12,10 +12,9 @@ export class CartComponent implements OnInit {
   constructor(private service: CartService, private router: Router) {}
 
   cartItems: GameModel[];
-
+  price: number = 0;
   ngOnInit() {
     this.cartItems = this.getGames();
-    console.log(this.cartItems);
   }
 
   getGames(): GameModel[] {
@@ -23,6 +22,7 @@ export class CartComponent implements OnInit {
 
     this.service.getAllByCart().subscribe(res =>
       res.forEach(element => {
+        this.price += element.Price;
         data.push(element);
       })
     );
@@ -30,5 +30,13 @@ export class CartComponent implements OnInit {
   }
   goToGameDetails(id: number) {
     this.router.navigateByUrl("details/" + id);
+  }
+  delay(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+  async removeItem(ID: number) {
+    this.service.removeFromCart(ID).subscribe();
+    await this.delay(0.3);
+    window.location.reload();
   }
 }

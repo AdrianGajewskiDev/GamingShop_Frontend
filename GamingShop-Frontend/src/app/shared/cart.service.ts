@@ -13,4 +13,8 @@ export class CartService {
   getAllByCart() {
     return this.http.get<GameModel[]>(this.URL + "/Cart/GetItemsInCart");
   }
+
+  removeFromCart(id: number) {
+    return this.http.post(this.URL + "/Cart/RemoveFromCart", id);
+  }
 }

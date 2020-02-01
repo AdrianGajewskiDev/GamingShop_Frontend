@@ -17,4 +17,11 @@ export class CartService {
   removeFromCart(id: number) {
     return this.http.post(this.URL + "/Cart/RemoveFromCart", id);
   }
+
+  async getCardID(): Promise<number> {
+    const response = await this.http
+      .get<number>(this.URL + "/Cart/GetCardID")
+      .toPromise();
+    return response;
+  }
 }

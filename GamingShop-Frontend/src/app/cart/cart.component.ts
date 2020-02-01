@@ -39,4 +39,10 @@ export class CartComponent implements OnInit {
     await this.delay(0.3);
     window.location.reload();
   }
+
+  async placeOrder() {
+    var cartID = await this.service.getCardID();
+
+    this.router.navigateByUrl("order/" + cartID);
+  }
 }

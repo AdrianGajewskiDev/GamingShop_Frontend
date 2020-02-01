@@ -1,0 +1,51 @@
+.form {
+  position: relative;
+  width: 50%;
+  padding: 40px 40px 60px;
+  background: #131419;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.05),
+    5px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.form .input-box {
+  margin-top: 20px;
+}
+
+.form .input-box input {
+  width: 100%;
+  height: 50xp;
+  background: #131419;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  padding: 5px 15px;
+  color: #fff;
+  font-size: 18px;
+  color: #03a9f4;
+  box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.1),
+    inset 2px 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.btn-submit-cst[type="submit"] {
+  width: 100%;
+  height: 50xp;
+  background: #131419;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  padding: 5px 15px;
+  color: #fff;
+  font-size: 18px;
+  color: #03a9f4;
+  margin-top: 20px;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.05),
+    5px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.btn-submit-cst:active {
+  margin-top: 20px;
+  box-shadow: inset -5px -5px 10px rgba(255, 255, 255, 0.05),
+    inset 5px 5px 15px rgba(0, 0, 0, 0.5);
+}

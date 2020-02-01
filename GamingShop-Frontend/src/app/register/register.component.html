@@ -1,82 +1,90 @@
-<div class="container-custom">
-  <form class="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-    <h2>Create Account</h2>
-    <div class="input">
-      <div class="input-box">
-        <label>Email</label>
-        <input type="email" formControlName="email" />
-        <p
-          class="text-danger"
-          *ngIf="registerForm.get('email').errors?.required"
-        >
-          Email addres is required
-        </p>
-        <p
-          class="text-danger"
-          *ngIf="registerForm.get('email').errors?.pattern"
-        >
-          Invalid Email addres
-        </p>
-      </div>
-      <div class="input-box">
-        <label>Username</label>
-        <input type="text" formControlName="username" />
-        <p
-          class="text-danger"
-          *ngIf="registerForm.get('username').errors?.required"
-        >
-          Username is required
-        </p>
-      </div>
-      <div class="input-box">
-        <label>Phone Number</label>
-        <input type="text" formControlName="phoneNumber" />
-        <p
-          class="text-danger"
-          *ngIf="registerForm.get('phoneNumber').errors?.required"
-        >
-          Phone number is required
-        </p>
-        <p
-          class="text-danger"
-          *ngIf="registerForm.get('phoneNumber').errors?.minlength"
-        >
-          Phone number should be 9 characters long
-        </p>
-      </div>
-      <div class="input-box">
-        <label>Password</label>
-        <input type="password" formControlName="password" />
-        <p
-          class="text-danger"
-          *ngIf="registerForm.get('password').errors?.required"
-        >
-          Password is required
-        </p>
-        <p
-          class="text-danger"
-          *ngIf="registerForm.get('password').errors?.minlength"
-        >
-          Password must be atleast 8 characters long
-        </p>
-      </div>
-      <div class="input-box">
-        <label>Confirm Password</label>
-        <input type="password" formControlName="confirmPassword" />
-        <p
-          class="text-danger"
-          *ngIf="registerForm.get('password').errors?.required"
-        >
-          Password is required
-        </p>
-        <p class="text-danger" *ngIf="registerForm.errors?.passwordMisMatch">
-          Passwords does not match
-        </p>
-      </div>
-
-      <div class="input-box">
-        <input type="submit" value="Create Account" />
-      </div>
+<div class="container p-5">
+  <div class="row">
+    <div class="col-md-8 offset-2">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" id="form">
+        <h2>Create Account</h2>
+        <div class="form-left">
+          <div class="input-box">
+            <label>Email</label>
+            <input type="email" formControlName="email" />
+            <p
+              class="text-danger"
+              *ngIf="registerForm.get('email').errors?.required"
+            >
+              Email addres is required
+            </p>
+            <p
+              class="text-danger"
+              *ngIf="registerForm.get('email').errors?.pattern"
+            >
+              Invalid Email addres
+            </p>
+          </div>
+          <div class="input-box">
+            <label>Username</label>
+            <input type="text" formControlName="username" />
+            <p
+              class="text-danger"
+              *ngIf="registerForm.get('username').errors?.required"
+            >
+              Username is required
+            </p>
+          </div>
+          <div class="input-box">
+            <label>Phone Number</label>
+            <input type="text" formControlName="phoneNumber" />
+            <p
+              class="text-danger"
+              *ngIf="registerForm.get('phoneNumber').errors?.required"
+            >
+              Phone number is required
+            </p>
+            <p
+              class="text-danger"
+              *ngIf="registerForm.get('phoneNumber').errors?.minlength"
+            >
+              Phone number should be 9 characters long
+            </p>
+          </div>
+        </div>
+        <div class="form-right">
+          <div class="input-box">
+            <label>Password</label>
+            <input type="password" formControlName="password" />
+            <p
+              class="text-danger"
+              *ngIf="registerForm.get('password').errors?.required"
+            >
+              Password is required
+            </p>
+            <p
+              class="text-danger"
+              *ngIf="registerForm.get('password').errors?.minlength"
+            >
+              Password must be atleast 8 characters long
+            </p>
+          </div>
+          <div class="input-box">
+            <label>Confirm Password</label>
+            <input type="password" formControlName="confirmPassword" />
+            <p
+              class="text-danger"
+              *ngIf="registerForm.get('password').errors?.required"
+            >
+              Password is required
+            </p>
+            <p
+              class="text-danger"
+              *ngIf="registerForm.errors?.passwordMisMatch"
+            >
+              Passwords does not match
+            </p>
+          </div>
+        </div>
+        <div class="form-btn-container">
+          <input type="submit" value="Create Account" />
+        </div>
+      </form>
     </div>
-  </form>
+  </div>
 </div>

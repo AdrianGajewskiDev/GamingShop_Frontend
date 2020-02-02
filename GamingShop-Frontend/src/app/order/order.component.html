@@ -1,54 +1,83 @@
 <div class="container p-5">
-  <form class="form">
+  <form [formGroup]="orderForm" (ngSubmit)="onSubmit()" class="form">
     <div class="form-group input-box">
       <input
+        [ngClass]="{
+          'form-invalid': orderForm.get('FirstName').errors?.required
+        }"
         placeholder="First name"
         type="text"
         required="required"
         class="form-control"
+        formControlName="FirstName"
       />
     </div>
     <div class="form-group input-box">
       <input
+        [ngClass]="{
+          'form-invalid': orderForm.get('LastName').errors?.required
+        }"
         placeholder="Last name"
         type="text"
         required="required"
         class="form-control "
+        formControlName="LastName"
       />
     </div>
     <div class="form-group input-box">
       <input
+        [ngClass]="{
+          'form-invalid': orderForm.get('Country').errors?.required
+        }"
         placeholder="Country"
         type="text"
         required="required"
         class="form-control"
+        formControlName="Country"
       />
     </div>
     <div class="form-group input-box">
       <input
+        [ngClass]="{
+          'form-invalid': orderForm.get('City').errors?.required
+        }"
         placeholder="City"
         type="text"
         required="required"
         class="form-control"
-      />
-    </div>
-    <div class="form-group input-box">
-      <input placeholder="State" type="text" class="form-control" />
-    </div>
-    <div class="form-group input-box">
-      <input
-        placeholder="Street input-box"
-        type="text"
-        required="required"
-        class="form-control"
+        formControlName="City"
       />
     </div>
     <div class="form-group input-box">
       <input
-        placeholder="000-00"
+        placeholder="State"
+        type="text"
+        class="form-control"
+        formControlName="State"
+      />
+    </div>
+    <div class="form-group input-box">
+      <input
+        [ngClass]="{
+          'form-invalid': orderForm.get('Street').errors?.required
+        }"
+        placeholder="Street"
         type="text"
         required="required"
         class="form-control"
+        formControlName="Street"
+      />
+    </div>
+    <div class="form-group input-box">
+      <input
+        [ngClass]="{
+          'form-invalid': orderForm.get('PostalCode').errors?.required
+        }"
+        placeholder="00-000"
+        type="text"
+        required="required"
+        class="form-control"
+        formControlName="PostalCode"
       />
     </div>
     <div class="form-group input-box">
@@ -56,6 +85,7 @@
         placeholder="Alternative email adress"
         type="text"
         class="form-control"
+        formControlName="AlternativeEmailAdress"
       />
     </div>
     <div class="form-group input-box">
@@ -63,10 +93,16 @@
         type="text"
         class="form-control"
         placeholder="Alternative Phone number"
+        formControlName="AlternativePhoneNumber"
       />
     </div>
     <div class="form-group">
-      <button name="submit" type="submit" class="btn-submit-cst">Order</button>
+      <input
+        type="submit"
+        class="btn-submit-cst"
+        value="Order"
+        [disabled]="!orderForm.valid"
+      />
     </div>
   </form>
 </div>

@@ -1,6 +1,10 @@
 import { Component, OnInit } from "@angular/core";
-import { Routes, ActivatedRoute } from "@angular/router";
+import { Routes, ActivatedRoute, Router } from "@angular/router";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { OrderModel } from "../shared/order.model";
+import { CartService } from "../shared/cart.service";
+import { OrderService } from "../shared/order.service";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-order",
@@ -8,7 +12,13 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
   styleUrls: ["./order.component.css"]
 })
 export class OrderComponent implements OnInit {
-  constructor(private route: ActivatedRoute, private fb: FormBuilder) {}
+  constructor(
+    private route: ActivatedRoute,
+    private fb: FormBuilder,
+    private orderService: OrderService,
+    private router: Router,
+    private toastr: ToastrService
+  ) {}
 
   cardID: number;
   orderForm: FormGroup;
@@ -18,15 +28,39 @@ export class OrderComponent implements OnInit {
     });
 
     this.orderForm = this.fb.group({
-      Name: ["", Validators.required],
+      FirstName: ["", Validators.required],
       LastName: ["", Validators.required],
       Country: ["", Validators.required],
       City: ["", Validators.required],
       State: [""],
       Street: ["", Validators.required],
-      PostalCode: [Validators.required, Validators.minLength(5)],
+      PostalCode: ["", [Validators.required, Validators.minLength(5)]],
       AlternativeEmailAdress: [""],
       AlternativePhoneNumber: [""]
+    });
+
+    console.log("Form valid: " + this.orderForm.valid);
+  }
+
+  onSubmit() {
+    var orderModel: OrderModel = {
+      FirstName: this.orderForm.get("FirstName").value,
+      LastName: this.orderForm.get("LastName").value,
+      Country: this.orderForm.get("Country").value,
+      City: this.orderForm.get("City").value,
+      State: this.orderForm.get("State").value,
+      Street: this.orderForm.get("Street").value,
+      PostalCode: this.orderForm.get("PostalCode").value,
+      AlternativeEmailAdress: this.orderForm.get("AlternativeEmailAdress")
+        .value,
+      AlternativePhoneNumber: this.orderForm.get("AlternativePhoneNumber").value
+    };
+
+    this.orderService.placeOrder(this.cardID, orderModel).subscribe(res => {
+      this.toastr.success(
+        "Your order has been placed!! Check your email for details"
+      );
+      this.router.navigateByUrl("games");
     });
   }
 }

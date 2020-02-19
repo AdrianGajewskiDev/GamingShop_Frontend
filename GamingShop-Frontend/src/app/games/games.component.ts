@@ -24,5 +24,7 @@ export class GamesComponent implements OnInit {
         .subscribe(response => (this.games = response));
     }
     localStorage.removeItem("searchQuery");
+
+    console.log(localStorage.getItem("token"));
   }
 }

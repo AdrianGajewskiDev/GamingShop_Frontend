@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { UserService } from "src/app/shared/user.service";
 import { UserModel } from "src/app/shared/user.model";
 import { FormControl, FormBuilder, FormGroup } from "@angular/forms";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-user-account",
@@ -12,7 +13,11 @@ export class UserAccountComponent implements OnInit {
   userData: UserModel = new UserModel();
   showSaveChangesBtn = false;
   formData: FormGroup;
-  constructor(private service: UserService, private fb: FormBuilder) {}
+  constructor(
+    private service: UserService,
+    private fb: FormBuilder,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.userData = this.getUserData();
@@ -49,6 +54,10 @@ export class UserAccountComponent implements OnInit {
   async onBlurMethod() {
     await this.delay(100);
     this.showSaveChangesBtn = false;
+  }
+
+  goToCart() {
+    this.router.navigateByUrl("cart");
   }
 
   saveChanges() {

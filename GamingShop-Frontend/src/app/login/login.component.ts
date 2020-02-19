@@ -50,4 +50,24 @@ export class LoginComponent implements OnInit {
       }
     );
   }
+
+  externalLogin(providerID): void {
+    var provider;
+
+    switch (providerID) {
+      case 1:
+        provider = "Google";
+        break;
+      case 2:
+        provider = "Facebook";
+        break;
+      case 3:
+        provider = "Twitter";
+        break;
+      default:
+        break;
+    }
+
+    console.log(provider);
+  }
 }

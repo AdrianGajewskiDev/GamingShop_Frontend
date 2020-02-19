@@ -69,3 +69,36 @@
   margin-top: 30px;
   color: #555;
 }
+
+.external-logins {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 10vh;
+}
+
+.external-logins p {
+  color: #868686;
+}
+
+.external-logins a i {
+  font-size: 2rem;
+  color: #03a9f4;
+  margin-right: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.external-logins a {
+  transition: transform 0.7 ease-in-out;
+}
+
+.logins-container {
+  display: flex;
+  justify-content: center;
+}
+
+.external-logins a:hover {
+  transform: scale(1.2);
+}

@@ -17,8 +17,6 @@ export class NavbarComponent implements OnInit {
     this.searchForm = new FormGroup({
       searchInput: new FormControl()
     });
-
-    console.log(this.service.isUserLoggedIn);
   }
 
   updateSearchQuery(): void {

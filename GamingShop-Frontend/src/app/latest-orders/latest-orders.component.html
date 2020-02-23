@@ -1,0 +1,10 @@
+<div class="container pt-5 pb-5">
+  <div class="row">
+    <app-latest-order-item
+      *ngFor="let order of orders"
+      [orderDetails]="order"
+      class="col-md-4"
+    >
+    </app-latest-order-item>
+  </div>
+</div>

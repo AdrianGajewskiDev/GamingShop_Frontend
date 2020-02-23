@@ -1,0 +1,73 @@
+.order-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #131419;
+  border-radius: 15px;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.05),
+    5px 5px 15px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.order-card h1 {
+  color: #03a9f4 !important;
+}
+
+.order-details-item {
+  display: flex;
+  width: 100%;
+  padding: 3px;
+}
+
+.order-details-item .header {
+  color: white;
+  font-size: 1.2rem;
+  display: flex;
+  justify-self: flex-start;
+  align-self: center;
+  width: 50%;
+}
+.order-details-item .value {
+  font-size: 1.1rem;
+  color: white;
+  display: flex;
+  justify-self: flex-end;
+  align-self: center;
+  width: 50%;
+}
+
+.border-custom {
+  border-bottom: 1px solid #03a9f4;
+}
+
+.order-details-item-adress {
+  color: white;
+  font-size: 1.1rem;
+}
+
+.fa-chevron-circle-down {
+  color: #03a9f4;
+  font-size: 1.2rem;
+}
+
+.order-items {
+  padding-top: 5px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: none;
+  background-color: #131419;
+}
+
+.active {
+  display: block !important;
+  transform: translateY(100%);
+}
+
+.order-item {
+  cursor: pointer;
+  color: white;
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+}

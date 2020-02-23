@@ -27,6 +27,8 @@ import { AuthorizationInterceptor } from "./shared/authorization.interceptor";
 import { EmailConfirmationComponent } from "./email-confirmation/email-confirmation.component";
 import { CartComponent } from "./cart/cart.component";
 import { OrderComponent } from "./order/order.component";
+import { LatestOrdersComponent } from './latest-orders/latest-orders.component';
+import { LatestOrderItemComponent } from './latest-order-item/latest-order-item.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { OrderComponent } from "./order/order.component";
     RegisterComponent,
     EmailConfirmationComponent,
     CartComponent,
-    OrderComponent
+    OrderComponent,
+    LatestOrdersComponent,
+    LatestOrderItemComponent
   ],
   imports: [
     BrowserModule,

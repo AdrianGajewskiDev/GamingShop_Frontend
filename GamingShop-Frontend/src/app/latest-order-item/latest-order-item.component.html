@@ -1,0 +1,31 @@
+<!-- 
+<div *ngFor="let game of orderDetails.Games">
+  <p>{{ game.Title }}</p>
+</div> -->
+
+<div class=" order-card">
+  <h1>Order</h1>
+  <div class="order-details">
+    <div class="order-details-item">
+      <p class="header">Placed:</p>
+      <p class="value">{{ orderDetails.Placed }}</p>
+    </div>
+    <div class="order-details-item border-custom">
+      <p class="header">Total Price:</p>
+      <p class="value">{{ orderDetails.TotalPrice }}$</p>
+    </div>
+    <h1>Adress:</h1>
+    <div class="order-details-item-adress">
+      <p>{{ orderDetails.City }}, {{ orderDetails.Street }}</p>
+    </div>
+    <i (click)="showOrderItems()" class="fas fa-chevron-circle-down"></i>
+  </div>
+  <div
+    class="order-items
+  "
+  >
+    <div class="order-item" *ngFor="let game of orderDetails.Games">
+      <a (click)="goToGameDetails(game.ID)">{{ game.Title }}</a>
+    </div>
+  </div>
+</div>

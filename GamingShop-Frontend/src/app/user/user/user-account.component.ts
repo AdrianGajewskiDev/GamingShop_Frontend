@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { UserService } from "src/app/shared/user.service";
 import { UserModel } from "src/app/shared/user.model";
-import { FormControl, FormBuilder, FormGroup } from "@angular/forms";
+import { FormBuilder, FormGroup } from "@angular/forms";
 import { Router } from "@angular/router";
 
 @Component({
@@ -86,5 +86,9 @@ export class UserAccountComponent implements OnInit {
         window.location.reload();
       });
     }
+  }
+
+  goToLatestOrders() {
+    this.router.navigateByUrl("latestOrders");
   }
 }

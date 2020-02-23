@@ -8,6 +8,7 @@ import { AuthenticationGuard } from "./app/shared/authentication.guard";
 import { EmailConfirmationComponent } from "./app/email-confirmation/email-confirmation.component";
 import { CartComponent } from "./app/cart/cart.component";
 import { OrderComponent } from "./app/order/order.component";
+import { LatestOrdersComponent } from "./app/latest-orders/latest-orders.component";
 
 export const appRoutes: Routes = [
   {
@@ -48,5 +49,9 @@ export const appRoutes: Routes = [
     path: "order/:cartID",
     component: OrderComponent,
     canActivate: [AuthenticationGuard]
+  },
+  {
+    path: "latestOrders",
+    component: LatestOrdersComponent
   }
 ];

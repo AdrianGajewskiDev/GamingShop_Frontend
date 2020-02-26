@@ -12,7 +12,7 @@
     </div>
     <div class="order-details-item border-custom">
       <p class="header">Total Price:</p>
-      <p class="value">{{ orderDetails.TotalPrice }}$</p>
+      <p class="value">{{ orderDetails.Price }}$</p>
     </div>
     <h1>Adress:</h1>
     <div class="order-details-item-adress">
@@ -23,6 +23,7 @@
   <div
     class="order-items
   "
+    [id]="itemID"
   >
     <div class="order-item" *ngFor="let game of orderDetails.Games">
       <a (click)="goToGameDetails(game.ID)">{{ game.Title }}</a>

@@ -56,13 +56,13 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-  display: none;
   background-color: #131419;
+  transform: translateY(100%);
+  display: none;
 }
 
 .active {
   display: block !important;
-  transform: translateY(100%);
 }
 
 .order-item {

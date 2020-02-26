@@ -51,6 +51,10 @@ export class LoginComponent implements OnInit {
     );
   }
 
+  redirectToPasswordResetPage() {
+    this.router.navigateByUrl("forgetPassword");
+  }
+
   externalLogin(providerID): void {
     var provider;
 

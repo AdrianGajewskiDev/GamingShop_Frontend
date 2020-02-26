@@ -9,6 +9,7 @@ import { EmailConfirmationComponent } from "./app/email-confirmation/email-confi
 import { CartComponent } from "./app/cart/cart.component";
 import { OrderComponent } from "./app/order/order.component";
 import { LatestOrdersComponent } from "./app/latest-orders/latest-orders.component";
+import { ForgetPasswordComponent } from "./app/forget-password/forget-password.component";
 
 export const appRoutes: Routes = [
   {
@@ -53,5 +54,9 @@ export const appRoutes: Routes = [
   {
     path: "latestOrders",
     component: LatestOrdersComponent
+  },
+  {
+    path: "forgetPassword",
+    component: ForgetPasswordComponent
   }
 ];

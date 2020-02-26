@@ -29,6 +29,7 @@ import { CartComponent } from "./cart/cart.component";
 import { OrderComponent } from "./order/order.component";
 import { LatestOrdersComponent } from './latest-orders/latest-orders.component';
 import { LatestOrderItemComponent } from './latest-order-item/latest-order-item.component';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { LatestOrderItemComponent } from './latest-order-item/latest-order-item.
     CartComponent,
     OrderComponent,
     LatestOrdersComponent,
-    LatestOrderItemComponent
+    LatestOrderItemComponent,
+    ForgetPasswordComponent
   ],
   imports: [
     BrowserModule,

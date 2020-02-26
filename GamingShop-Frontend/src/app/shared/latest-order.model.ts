@@ -2,7 +2,7 @@ import { GameModel } from "./game-model";
 
 export interface LatestOrderModel {
   Placed: string;
-  TotalPrice: number;
+  Price: number;
   Street: string;
   City: string;
   Country: string;

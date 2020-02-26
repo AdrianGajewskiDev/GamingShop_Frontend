@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { LatestOrderModel } from "../shared/latest-order.model";
 import { Router } from "@angular/router";
+import { GUID } from "../shared/GUID";
 
 @Component({
   selector: "app-latest-order-item",
@@ -10,15 +11,14 @@ import { Router } from "@angular/router";
 export class LatestOrderItemComponent implements OnInit {
   constructor(private router: Router) {}
   @Input() orderDetails: LatestOrderModel;
+  itemID = GUID.newGuid();
+  ngOnInit() {}
 
-  ngOnInit() {
-    console.log(this.orderDetails);
-  }
-  showGameDetails: boolean;
   showOrderItems() {
-    this.showGameDetails != this.showGameDetails;
-  }
+    let items = document.getElementById(this.itemID.toString());
 
+    items.classList.toggle("active");
+  }
   goToGameDetails(gameID: number) {
     this.router.navigateByUrl("details/" + gameID);
   }

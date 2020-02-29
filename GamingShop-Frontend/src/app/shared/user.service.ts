@@ -3,6 +3,7 @@ import { UserModel } from "./user.model";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { throwError } from "rxjs";
 import { UserLoginModel } from "./user-login.model";
+import { NewPasswordModel } from "./newPassword.mode";
 
 @Injectable()
 export class UserService {
@@ -50,5 +51,12 @@ export class UserService {
       this.URL + "/UserProfile/UpdatePhoneNumber/" + phoneNumber,
       null
     );
+  }
+
+  forgetPassword(email: string) {
+    return this.http.post(this.URL + "/User/ForgetPassword/" + email, null);
+  }
+  forgetPasswordCallback(model: NewPasswordModel) {
+    return this.http.post(this.URL + "/User/ForgetPasswordCallback", model);
   }
 }

@@ -30,6 +30,7 @@ import { OrderComponent } from "./order/order.component";
 import { LatestOrdersComponent } from './latest-orders/latest-orders.component';
 import { LatestOrderItemComponent } from './latest-order-item/latest-order-item.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { ForgetPasswordNewComponent } from './forget-password-new/forget-password-new.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
     OrderComponent,
     LatestOrdersComponent,
     LatestOrderItemComponent,
-    ForgetPasswordComponent
+    ForgetPasswordComponent,
+    ForgetPasswordNewComponent
   ],
   imports: [
     BrowserModule,

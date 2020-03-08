@@ -21,7 +21,7 @@ export class UserAccountComponent implements OnInit {
 
   ngOnInit() {
     this.userData = this.getUserData();
-
+    console.log(this.userData);
     this.formData = this.fb.group({
       Username: [""],
       Email: [""],
@@ -90,5 +90,9 @@ export class UserAccountComponent implements OnInit {
 
   goToLatestOrders() {
     this.router.navigateByUrl("latestOrders");
+  }
+
+  addGame() {
+    this.router.navigateByUrl("/addGame");
   }
 }

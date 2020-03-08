@@ -27,10 +27,12 @@ import { AuthorizationInterceptor } from "./shared/authorization.interceptor";
 import { EmailConfirmationComponent } from "./email-confirmation/email-confirmation.component";
 import { CartComponent } from "./cart/cart.component";
 import { OrderComponent } from "./order/order.component";
-import { LatestOrdersComponent } from './latest-orders/latest-orders.component';
-import { LatestOrderItemComponent } from './latest-order-item/latest-order-item.component';
-import { ForgetPasswordComponent } from './forget-password/forget-password.component';
-import { ForgetPasswordNewComponent } from './forget-password-new/forget-password-new.component';
+import { LatestOrdersComponent } from "./latest-orders/latest-orders.component";
+import { LatestOrderItemComponent } from "./latest-order-item/latest-order-item.component";
+import { ForgetPasswordComponent } from "./forget-password/forget-password.component";
+import { ForgetPasswordNewComponent } from "./forget-password-new/forget-password-new.component";
+import { AddGameComponent } from "./add-game/add-game.component";
+import { ImageUploader } from "./shared/imageUploader";
 
 @NgModule({
   declarations: [
@@ -49,7 +51,8 @@ import { ForgetPasswordNewComponent } from './forget-password-new/forget-passwor
     LatestOrdersComponent,
     LatestOrderItemComponent,
     ForgetPasswordComponent,
-    ForgetPasswordNewComponent
+    ForgetPasswordNewComponent,
+    AddGameComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +72,8 @@ import { ForgetPasswordNewComponent } from './forget-password-new/forget-passwor
       provide: HTTP_INTERCEPTORS,
       useClass: AuthorizationInterceptor,
       multi: true
-    }
+    },
+    ImageUploader
   ],
   bootstrap: [AppComponent]
 })

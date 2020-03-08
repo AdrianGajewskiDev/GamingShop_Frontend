@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { GameModel } from "./game-model";
+import { NewGameModel } from "./newGame.model";
 @Injectable()
 export class GameService {
   constructor(private http: HttpClient) {}
@@ -16,5 +17,9 @@ export class GameService {
 
   getGameByID(id: number) {
     return this.http.get<GameModel>(this.URL + "/Games/GetGame/" + id);
+  }
+
+  addGame(model: NewGameModel) {
+    return this.http.post(this.URL + "/Sales/AddGame", model);
   }
 }

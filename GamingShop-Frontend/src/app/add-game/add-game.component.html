@@ -1,0 +1,106 @@
+<div class="container p-5">
+  <form [formGroup]="newGameForm" (ngSubmit)="onSubmit()" class="form">
+    <div class="form-group input-box">
+      <input
+        [ngClass]="{
+          'form-invalid': newGameForm.get('Title').errors?.required
+        }"
+        placeholder="Title"
+        type="text"
+        required="required"
+        class="form-control"
+        formControlName="Title"
+      />
+    </div>
+    <div class="form-group input-box">
+      <input
+        [ngClass]="{
+          'form-invalid': newGameForm.get('Description').errors?.required
+        }"
+        placeholder="Description"
+        type="text"
+        required="required"
+        class="form-control "
+        formControlName="Description"
+      />
+    </div>
+    <div class="form-group input-box">
+      <input
+        [ngClass]="{
+          'form-invalid': newGameForm.get('Producent').errors?.required
+        }"
+        placeholder="Producent"
+        type="text"
+        required="required"
+        class="form-control"
+        formControlName="Producent"
+      />
+    </div>
+    <div class="form-group input-box">
+      <input
+        [ngClass]="{
+          'form-invalid': newGameForm.get('Price').errors?.required
+        }"
+        placeholder="Price"
+        type="text"
+        required="required"
+        class="form-control"
+        formControlName="Price"
+      />
+    </div>
+    <div class="form-group input-box">
+      <input
+        placeholder="Pegi"
+        type="text"
+        class="form-control"
+        formControlName="Pegi"
+      />
+    </div>
+    <div class="form-group input-box ">
+      <label for="file-cs">Select a file</label>
+      <input
+        type="file"
+        class="form-control"
+        (change)="onUploadImageChange($event)"
+        id="file-cs"
+      />
+    </div>
+
+    <div class="form-group input-box">
+      <input
+        [ngClass]="{
+          'form-invalid': newGameForm.get('LaunchDate').errors?.required
+        }"
+        placeholder="Launch Date"
+        type="text"
+        required="required"
+        class="form-control"
+        formControlName="LaunchDate"
+      />
+    </div>
+    <div class="form-group input-box">
+      <input
+        placeholder="Type"
+        type="text"
+        class="form-control"
+        formControlName="Type"
+      />
+    </div>
+    <div class="form-group input-box">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Platform"
+        formControlName="Platform"
+      />
+    </div>
+    <div class="form-group">
+      <input
+        type="submit"
+        class="btn-submit-cst"
+        value="Add Game"
+        [disabled]="!newGameForm.valid"
+      />
+    </div>
+  </form>
+</div>

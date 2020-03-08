@@ -11,6 +11,7 @@ import { OrderComponent } from "./app/order/order.component";
 import { LatestOrdersComponent } from "./app/latest-orders/latest-orders.component";
 import { ForgetPasswordComponent } from "./app/forget-password/forget-password.component";
 import { ForgetPasswordNewComponent } from "./app/forget-password-new/forget-password-new.component";
+import { AddGameComponent } from "./app/add-game/add-game.component";
 
 export const appRoutes: Routes = [
   {
@@ -63,5 +64,9 @@ export const appRoutes: Routes = [
   {
     path: "resetPassword/:userID/:token",
     component: ForgetPasswordNewComponent
+  },
+  {
+    path: "addGame",
+    component: AddGameComponent
   }
 ];

@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { map } from "rxjs/operators";
 
 @Injectable()
 export class ImageUploader {
@@ -8,10 +7,10 @@ export class ImageUploader {
 
   constructor(private http: HttpClient) {}
 
-  uploadImage(image: File) {
+  uploadImage(image: File, gameID) {
     let input = new FormData();
     input.append("image", image);
 
-    return this.http.post(this.URL + "/Sales/AddImage", input);
+    return this.http.post(this.URL + "/Sales/AddImage/" + gameID, input);
   }
 }

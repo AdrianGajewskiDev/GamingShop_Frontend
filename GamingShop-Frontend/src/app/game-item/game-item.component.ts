@@ -10,14 +10,18 @@ import { ToastrService } from "node_modules/ngx-toastr";
 })
 export class GameItemComponent implements OnInit {
   @Input() gameDetails;
-
+  imagePath: string;
   constructor(
     private router: Router,
     private service: CartService,
     private toastr: ToastrService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.imagePath = "../../assets/img/" + this.gameDetails.ImageUrl;
+
+    console.log(this.gameDetails.ImageUrl);
+  }
 
   goToDetails(id: number): void {
     this.router.navigate(["details", id]);

@@ -15,6 +15,7 @@ export class AddGameComponent implements OnInit {
   image: File;
   newGameForm: FormGroup;
   newGameModel: NewGameModel = new NewGameModel();
+  returnedGameID;
 
   constructor(
     private fb: FormBuilder,
@@ -48,18 +49,16 @@ export class AddGameComponent implements OnInit {
     this.newGameModel.ImageUrl = this.image.name;
     this.service.addGame(this.newGameModel).subscribe(
       res => {
-        console.log("Succeeded!!!!");
+        this.imgUploader.uploadImage(this.image, res).subscribe(
+          res => {
+            this.router.navigateByUrl("/games");
+          },
+          error => console.log(error)
+        );
       },
       error => {
         console.log(error);
       }
-    );
-
-    this.imgUploader.uploadImage(this.image).subscribe(
-      res => {
-        console.log("Succeeded");
-      },
-      error => console.log(error)
     );
   }
 

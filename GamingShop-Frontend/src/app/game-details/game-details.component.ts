@@ -13,12 +13,12 @@ import { StringifyOptions } from "querystring";
 export class GameDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
-    private gameService: GameService,
-    private userService: UserService
+    private gameService: GameService
   ) {}
   game: GameModel = new GameModel();
   id: number;
   seller_Username = "";
+  imagePath: string;
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.id = params["id"];
@@ -37,7 +37,7 @@ export class GameDetailsComponent implements OnInit {
           (data.Title = res.Title),
           (data.Description = res.Description),
           (data.ID = res.ID),
-          (data.ImageUrl = res.ImageUrl),
+          (this.imagePath = "../../assets/img/" + res.ImageUrl),
           (data.OwnerUsername = res.OwnerUsername),
           (data.Pegi = res.Pegi),
           (data.Platform = res.Platform),

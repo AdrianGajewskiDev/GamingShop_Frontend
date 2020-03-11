@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { GameService } from "../shared/game.service";
-import { GameModel } from "../shared/game-model";
+import { GameIndexModel } from "../shared/game-index-model";
 
 @Component({
   selector: "app-games",
@@ -8,23 +8,36 @@ import { GameModel } from "../shared/game-model";
   styles: []
 })
 export class GamesComponent implements OnInit {
+  public games: GameIndexModel[];
+  searchQuery: string;
+
   constructor(private service: GameService) {}
 
-  games: GameModel[];
-  searchQuery: string;
   ngOnInit() {
     if (localStorage.getItem("searchQuery") != null)
       this.searchQuery = JSON.parse(localStorage.getItem("searchQuery"));
 
     if (this.searchQuery == "" || this.searchQuery == undefined) {
-      this.service.getGames().subscribe(response => (this.games = response));
+      this.games = this.getGames();
     } else {
       this.service
         .getGamesBySearchQuery(this.searchQuery)
         .subscribe(response => (this.games = response));
     }
-    localStorage.removeItem("searchQuery");
 
-    console.log(localStorage.getItem("token"));
+    localStorage.removeItem("searchQuery");
+    console.log(this.games);
+  }
+
+  getGames(): GameIndexModel[] {
+    let model: GameIndexModel[] = [];
+
+    this.service.getGames().subscribe(response => {
+      response.forEach(element => {
+        model.push(element);
+      });
+    });
+
+    return model;
   }
 }

@@ -34,6 +34,7 @@ import { ForgetPasswordNewComponent } from "./forget-password-new/forget-passwor
 import { AddGameComponent } from "./add-game/add-game.component";
 import { ImageUploader } from "./shared/HelperClasses/imageUploader";
 import { UserSalesComponent } from "./user-sales/user-sales.component";
+import { SaleItemComponent } from './sale-item/sale-item.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { UserSalesComponent } from "./user-sales/user-sales.component";
     ForgetPasswordComponent,
     ForgetPasswordNewComponent,
     AddGameComponent,
-    UserSalesComponent
+    UserSalesComponent,
+    SaleItemComponent
   ],
   imports: [
     BrowserModule,

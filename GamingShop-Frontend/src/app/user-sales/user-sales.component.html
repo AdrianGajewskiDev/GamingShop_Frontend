@@ -1,1 +1,9 @@
-<p>user-sales works!</p>
+<div class="container">
+  <div class="row pt-5">
+    <app-sale-item
+      *ngFor="let sale of games"
+      class="col-md-4"
+      [saleDetails]="sale"
+    ></app-sale-item>
+  </div>
+</div>

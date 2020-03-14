@@ -1,9 +1,10 @@
 import { Injectable } from "@angular/core";
-import { UserModel } from "./user.model";
+import { UserModel } from "../Models/user.model";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { throwError } from "rxjs";
-import { UserLoginModel } from "./user-login.model";
-import { NewPasswordModel } from "./newPassword.mode";
+import { UserLoginModel } from "../Models/user-login.model";
+import { NewPasswordModel } from "../Models/newPassword.mode";
+import { SaleModel } from "../Models/sale.model";
 
 @Injectable()
 export class UserService {
@@ -62,5 +63,9 @@ export class UserService {
 
   getUsername(id: string) {
     return this.http.get<string>(this.URL + "/User/getUsername/" + id);
+  }
+
+  getUserSales() {
+    return this.http.get<SaleModel[]>(this.URL + "/Sales/UserSales");
   }
 }

@@ -6,11 +6,11 @@ import {
   FormBuilder
 } from "@angular/forms";
 
-import { PasswordMisMatch } from "../shared/customValidators";
-import { UserService } from "../shared/user.service";
-import { UserModel } from "../shared/user.model";
+import { PasswordMisMatch } from "../shared/HelperClasses/customValidators";
+import { UserService } from "../shared/Services/user.service";
+import { UserModel } from "../shared/Models/user.model";
 import { Router } from "@angular/router";
-import { UserLoginModel } from "../shared/user-login.model";
+import { UserLoginModel } from "../shared/Models/user-login.model";
 
 @Component({
   selector: "app-register",

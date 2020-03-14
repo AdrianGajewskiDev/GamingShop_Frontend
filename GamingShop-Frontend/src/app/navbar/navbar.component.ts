@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
-import { UserService } from "../shared/user.service";
+import { UserService } from "../shared/Services/user.service";
 import { Router } from "@angular/router";
 @Component({
   selector: "app-navbar",

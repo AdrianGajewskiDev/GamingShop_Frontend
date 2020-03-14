@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { GameModel } from "../shared/game-model";
-import { GameService } from "../shared/game.service";
-import { UserService } from "../shared/user.service";
+import { GameModel } from "../shared/Models/game-model";
+import { GameService } from "../shared/Services/game.service";
+import { UserService } from "../shared/Services/user.service";
 import { StringifyOptions } from "querystring";
 
 @Component({
@@ -25,6 +25,8 @@ export class GameDetailsComponent implements OnInit {
     });
 
     this.game = this.getGameDetails();
+
+    console.log(this.game);
   }
 
   getGameDetails(): GameModel {
@@ -44,7 +46,9 @@ export class GameDetailsComponent implements OnInit {
           (data.Price = res.Price),
           (data.Producent = res.Producent),
           (data.Type = res.Type),
-          (data.LaunchDate = res.LaunchDate)
+          (data.LaunchDate = res.LaunchDate),
+          (data.Sold = res.Sold),
+          console.log(res)
         )
       );
 

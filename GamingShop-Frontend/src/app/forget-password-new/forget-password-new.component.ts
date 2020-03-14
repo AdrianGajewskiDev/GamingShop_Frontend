@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { PasswordMisMatch } from "../shared/customValidators";
-import { NewPasswordModel } from "../shared/newPassword.mode";
-import { UserService } from "../shared/user.service";
+import { PasswordMisMatch } from "../shared/HelperClasses/customValidators";
+import { NewPasswordModel } from "../shared/Models/newPassword.mode";
+import { UserService } from "../shared/Services/user.service";
 
 @Component({
   selector: "app-forget-password-new",

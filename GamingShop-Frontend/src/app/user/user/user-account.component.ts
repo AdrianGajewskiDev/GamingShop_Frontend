@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { UserService } from "src/app/shared/user.service";
-import { UserModel } from "src/app/shared/user.model";
+import { UserService } from "src/app/shared/Services/user.service";
+import { UserModel } from "src/app/shared/Models/user.model";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { Router } from "@angular/router";
 
@@ -94,5 +94,9 @@ export class UserAccountComponent implements OnInit {
 
   addGame() {
     this.router.navigateByUrl("/addGame");
+  }
+
+  goToMySales() {
+    this.router.navigateByUrl("/mySales");
   }
 }

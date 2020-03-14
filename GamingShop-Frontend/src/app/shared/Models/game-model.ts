@@ -11,4 +11,5 @@ export class GameModel {
   Platform: string;
   Type: string;
   OwnerUsername: string;
+  Sold: boolean;
 }

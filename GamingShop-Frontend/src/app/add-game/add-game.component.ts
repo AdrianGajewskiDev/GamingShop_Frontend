@@ -1,10 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { NewGameModel } from "../shared/newGame.model";
-import { GameService } from "../shared/game.service";
+import { NewGameModel } from "../shared/Models/newGame.model";
+import { GameService } from "../shared/Services/game.service";
 import { Router } from "@angular/router";
 import { HttpHeaders } from "@angular/common/http";
-import { ImageUploader } from "../shared/imageUploader";
+import { ImageUploader } from "../shared/HelperClasses/imageUploader";
 
 @Component({
   selector: "app-add-game",

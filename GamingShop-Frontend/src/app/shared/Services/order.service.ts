@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpParams } from "@angular/common/http";
-import { OrderModel } from "./order.model";
-import { LatestOrderModel } from "./latest-order.model";
+import { OrderModel } from "../Models/order.model";
+import { LatestOrderModel } from "../Models/latest-order.model";
 
 @Injectable()
 export class OrderService {

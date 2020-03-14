@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { Routes, ActivatedRoute, Router } from "@angular/router";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { OrderModel } from "../shared/order.model";
-import { CartService } from "../shared/cart.service";
-import { OrderService } from "../shared/order.service";
+import { OrderModel } from "../shared/Models/order.model";
+import { CartService } from "../shared/Services/cart.service";
+import { OrderService } from "../shared/Services/order.service";
 import { ToastrService } from "ngx-toastr";
 
 @Component({

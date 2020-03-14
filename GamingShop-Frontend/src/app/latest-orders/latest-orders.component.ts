@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { LatestOrderModel } from "../shared/latest-order.model";
-import { OrderService } from "../shared/order.service";
+import { LatestOrderModel } from "../shared/Models/latest-order.model";
+import { OrderService } from "../shared/Services/order.service";
 
 @Component({
   selector: "app-latest-orders",
@@ -16,6 +16,7 @@ export class LatestOrdersComponent implements OnInit {
     this.service.getLatestOrders().subscribe(res => {
       res.forEach(element => {
         this.orders.push(element);
+        console.log(element.Games);
       });
     });
   }

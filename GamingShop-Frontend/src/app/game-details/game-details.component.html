@@ -37,7 +37,13 @@
           </div>
           <div class="detail-item-actions">
             <div class="detail-btn">
-              <button class="btn btn-success" type="button">Buy</button>
+              <button
+                class="btn btn-success"
+                type="button"
+                [disabled]="game.Sold == true"
+              >
+                Buy
+              </button>
             </div>
             <h3 class="detail-price">{{ game.Price }}$</h3>
           </div>

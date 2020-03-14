@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { GameModel } from "./game-model";
+import { GameModel } from "../Models/game-model";
 
 @Injectable()
 export class CartService {

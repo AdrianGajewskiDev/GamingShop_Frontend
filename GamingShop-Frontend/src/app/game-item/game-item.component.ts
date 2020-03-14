@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Router } from "@angular/router";
-import { CartService } from "../shared/cart.service";
+import { CartService } from "../shared/Services/cart.service";
 import { ToastrService } from "node_modules/ngx-toastr";
 
 @Component({

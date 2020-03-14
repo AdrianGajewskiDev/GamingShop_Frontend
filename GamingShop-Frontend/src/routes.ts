@@ -4,7 +4,7 @@ import { UserAccountComponent } from "./app/user/user/user-account.component";
 import { GameDetailsComponent } from "./app/game-details/game-details.component";
 import { LoginComponent } from "./app/login/login.component";
 import { RegisterComponent } from "./app/register/register.component";
-import { AuthenticationGuard } from "./app/shared/authentication.guard";
+import { AuthenticationGuard } from "./app/shared/Authentication/authentication.guard";
 import { EmailConfirmationComponent } from "./app/email-confirmation/email-confirmation.component";
 import { CartComponent } from "./app/cart/cart.component";
 import { OrderComponent } from "./app/order/order.component";
@@ -12,6 +12,7 @@ import { LatestOrdersComponent } from "./app/latest-orders/latest-orders.compone
 import { ForgetPasswordComponent } from "./app/forget-password/forget-password.component";
 import { ForgetPasswordNewComponent } from "./app/forget-password-new/forget-password-new.component";
 import { AddGameComponent } from "./app/add-game/add-game.component";
+import { UserSalesComponent } from "./app/user-sales/user-sales.component";
 
 export const appRoutes: Routes = [
   {
@@ -68,5 +69,9 @@ export const appRoutes: Routes = [
   {
     path: "addGame",
     component: AddGameComponent
+  },
+  {
+    path: "mySales",
+    component: UserSalesComponent
   }
 ];

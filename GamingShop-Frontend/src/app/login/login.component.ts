@@ -6,8 +6,8 @@ import {
   Validators
 } from "@angular/forms";
 
-import { UserLoginModel } from "../shared/user-login.model";
-import { UserService } from "../shared/user.service";
+import { UserLoginModel } from "../shared/Models/user-login.model";
+import { UserService } from "../shared/Services/user.service";
 import { Router } from "@angular/router";
 
 @Component({

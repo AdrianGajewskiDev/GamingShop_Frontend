@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { LatestOrderModel } from "../shared/latest-order.model";
+import { LatestOrderModel } from "../shared/Models/latest-order.model";
 import { Router } from "@angular/router";
-import { GUID } from "../shared/GUID";
+import { GUID } from "../shared/HelperClasses/GUID";
 
 @Component({
   selector: "app-latest-order-item",

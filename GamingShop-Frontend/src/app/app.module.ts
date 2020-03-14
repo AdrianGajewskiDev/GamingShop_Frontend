@@ -19,11 +19,11 @@ import { RegisterComponent } from "./register/register.component";
 
 import { appRoutes } from "../routes";
 
-import { GameService } from "./shared/game.service";
-import { UserService } from "./shared/user.service";
-import { CartService } from "./shared/cart.service";
-import { OrderService } from "./shared/order.service";
-import { AuthorizationInterceptor } from "./shared/authorization.interceptor";
+import { GameService } from "./shared/Services/game.service";
+import { UserService } from "./shared/Services/user.service";
+import { CartService } from "./shared/Services/cart.service";
+import { OrderService } from "./shared/Services/order.service";
+import { AuthorizationInterceptor } from "./shared/Authentication/authorization.interceptor";
 import { EmailConfirmationComponent } from "./email-confirmation/email-confirmation.component";
 import { CartComponent } from "./cart/cart.component";
 import { OrderComponent } from "./order/order.component";
@@ -32,7 +32,8 @@ import { LatestOrderItemComponent } from "./latest-order-item/latest-order-item.
 import { ForgetPasswordComponent } from "./forget-password/forget-password.component";
 import { ForgetPasswordNewComponent } from "./forget-password-new/forget-password-new.component";
 import { AddGameComponent } from "./add-game/add-game.component";
-import { ImageUploader } from "./shared/imageUploader";
+import { ImageUploader } from "./shared/HelperClasses/imageUploader";
+import { UserSalesComponent } from "./user-sales/user-sales.component";
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { ImageUploader } from "./shared/imageUploader";
     LatestOrderItemComponent,
     ForgetPasswordComponent,
     ForgetPasswordNewComponent,
-    AddGameComponent
+    AddGameComponent,
+    UserSalesComponent
   ],
   imports: [
     BrowserModule,

@@ -23,4 +23,12 @@ export class GameService {
   addGame(model: NewGameModel) {
     return this.http.post(this.URL + "/Sales/AddGame", model);
   }
+
+  deleteGame(gameID: number) {
+    return this.http.delete(this.URL + "/Games/DeleteGame/" + gameID);
+  }
+
+  updateGame(model: GameModel, gameID: number) {
+    return this.http.put(this.URL + "/Games/UpdateGame/" + gameID, model);
+  }
 }

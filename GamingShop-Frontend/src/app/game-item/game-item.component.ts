@@ -19,8 +19,6 @@ export class GameItemComponent implements OnInit {
 
   ngOnInit() {
     this.imagePath = "../../assets/img/" + this.gameDetails.ImageUrl;
-
-    console.log(this.gameDetails.ImageUrl);
   }
 
   goToDetails(id: number): void {

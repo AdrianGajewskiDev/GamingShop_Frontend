@@ -14,8 +14,6 @@ export class UserSalesComponent implements OnInit {
 
   ngOnInit() {
     this.games = this.getUserSales();
-
-    console.log(this.games);
   }
 
   getUserSales(): SaleModel[] {

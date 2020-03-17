@@ -68,7 +68,6 @@ export class RegisterComponent implements OnInit {
     //if user successfully created then login him
     this.service.login(userLoginModel).subscribe((res: any) => {
       localStorage.setItem("token", res.token);
-      console.log("Setting token: " + res.token);
       this.service.isUserLoggedIn = true;
     });
 

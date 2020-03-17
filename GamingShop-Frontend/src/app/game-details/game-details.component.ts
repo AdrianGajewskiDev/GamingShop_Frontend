@@ -25,8 +25,6 @@ export class GameDetailsComponent implements OnInit {
     });
 
     this.game = this.getGameDetails();
-
-    console.log(this.game);
   }
 
   getGameDetails(): GameModel {
@@ -47,8 +45,7 @@ export class GameDetailsComponent implements OnInit {
           (data.Producent = res.Producent),
           (data.Type = res.Type),
           (data.LaunchDate = res.LaunchDate),
-          (data.Sold = res.Sold),
-          console.log(res)
+          (data.Sold = res.Sold)
         )
       );
 

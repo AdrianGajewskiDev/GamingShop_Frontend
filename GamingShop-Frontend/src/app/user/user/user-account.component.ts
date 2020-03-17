@@ -21,7 +21,6 @@ export class UserAccountComponent implements OnInit {
 
   ngOnInit() {
     this.userData = this.getUserData();
-    console.log(this.userData);
     this.formData = this.fb.group({
       Username: [""],
       Email: [""],
@@ -61,7 +60,6 @@ export class UserAccountComponent implements OnInit {
   }
 
   saveChanges() {
-    console.log("here");
     let data_Username = this.formData.get("Username").value;
     let data_Email = this.formData.get("Email").value;
     let data_PhoneNumber = this.formData.get("PhoneNumber").value;

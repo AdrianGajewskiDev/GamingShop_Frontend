@@ -38,8 +38,6 @@ export class OrderComponent implements OnInit {
       AlternativeEmailAdress: [""],
       AlternativePhoneNumber: [""]
     });
-
-    console.log("Form valid: " + this.orderForm.valid);
   }
 
   onSubmit() {

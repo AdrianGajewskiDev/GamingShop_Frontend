@@ -2,9 +2,9 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { NewGameModel } from "../shared/Models/newGame.model";
 import { GameService } from "../shared/Services/game.service";
-import { Router } from "@angular/router";
-import { HttpHeaders } from "@angular/common/http";
+import { Router, ActivatedRoute } from "@angular/router";
 import { ImageUploader } from "../shared/HelperClasses/imageUploader";
+import { GameModel } from "../shared/Models/game-model";
 
 @Component({
   selector: "app-add-game",
@@ -21,7 +21,8 @@ export class AddGameComponent implements OnInit {
     private fb: FormBuilder,
     private service: GameService,
     private router: Router,
-    private imgUploader: ImageUploader
+    private imgUploader: ImageUploader,
+    private routes: ActivatedRoute
   ) {}
 
   ngOnInit() {

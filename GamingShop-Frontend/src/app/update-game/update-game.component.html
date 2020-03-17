@@ -1,20 +1,21 @@
 <div class="container p-5">
-  <form [formGroup]="newGameForm" (ngSubmit)="onSubmit()" class="form">
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="form">
     <div class="form-group input-box">
       <input
         [ngClass]="{
-          'form-invalid': newGameForm.get('Title').errors?.required
+          'form-invalid': formGroup.get('Title').errors?.required
         }"
         placeholder="Title"
         type="text"
         required="required"
         class="form-control"
+        formControlName="Title"
       />
     </div>
     <div class="form-group input-box">
       <input
         [ngClass]="{
-          'form-invalid': newGameForm.get('Description').errors?.required
+          'form-invalid': formGroup.get('Description').errors?.required
         }"
         placeholder="Description"
         type="text"
@@ -26,7 +27,7 @@
     <div class="form-group input-box">
       <input
         [ngClass]="{
-          'form-invalid': newGameForm.get('Producent').errors?.required
+          'form-invalid': formGroup.get('Producent').errors?.required
         }"
         placeholder="Producent"
         type="text"
@@ -38,7 +39,7 @@
     <div class="form-group input-box">
       <input
         [ngClass]="{
-          'form-invalid': newGameForm.get('Price').errors?.required
+          'form-invalid': formGroup.get('Price').errors?.required
         }"
         placeholder="Price"
         type="text"
@@ -55,20 +56,11 @@
         formControlName="Pegi"
       />
     </div>
-    <div class="form-group input-box ">
-      <label for="file-cs">Select a file</label>
-      <input
-        type="file"
-        class="form-control"
-        (change)="onUploadImageChange($event)"
-        id="file-cs"
-      />
-    </div>
 
     <div class="form-group input-box">
       <input
         [ngClass]="{
-          'form-invalid': newGameForm.get('LaunchDate').errors?.required
+          'form-invalid': formGroup.get('LaunchDate').errors?.required
         }"
         placeholder="Launch Date"
         type="text"
@@ -94,7 +86,7 @@
       />
     </div>
     <div class="form-group">
-      <input type="submit" class="btn-submit-cst" value="Add Game" />
+      <input type="submit" class="btn-submit-cst" value="Update Game" />
     </div>
   </form>
 </div>

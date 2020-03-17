@@ -26,7 +26,6 @@ export class GamesComponent implements OnInit {
     }
 
     localStorage.removeItem("searchQuery");
-    console.log(this.games);
   }
 
   getGames(): GameIndexModel[] {

@@ -44,8 +44,6 @@ export class ForgetPasswordNewComponent implements OnInit {
     this.model.UserID = this.userID;
     this.model.Password = this.form.get("password").value;
 
-    console.log(this.model);
-
     this.userService.forgetPasswordCallback(this.model).subscribe(
       (res: any) => {
         this.router.navigateByUrl("login");

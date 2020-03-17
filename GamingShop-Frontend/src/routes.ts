@@ -13,6 +13,7 @@ import { ForgetPasswordComponent } from "./app/forget-password/forget-password.c
 import { ForgetPasswordNewComponent } from "./app/forget-password-new/forget-password-new.component";
 import { AddGameComponent } from "./app/add-game/add-game.component";
 import { UserSalesComponent } from "./app/user-sales/user-sales.component";
+import { UpdateGameComponent } from "./app/update-game/update-game.component";
 
 export const appRoutes: Routes = [
   {
@@ -56,7 +57,8 @@ export const appRoutes: Routes = [
   },
   {
     path: "latestOrders",
-    component: LatestOrdersComponent
+    component: LatestOrdersComponent,
+    canActivate: [AuthenticationGuard]
   },
   {
     path: "forgetPassword",
@@ -64,14 +66,22 @@ export const appRoutes: Routes = [
   },
   {
     path: "resetPassword/:userID/:token",
-    component: ForgetPasswordNewComponent
+    component: ForgetPasswordNewComponent,
+    canActivate: [AuthenticationGuard]
   },
   {
     path: "addGame",
-    component: AddGameComponent
+    component: AddGameComponent,
+    canActivate: [AuthenticationGuard]
   },
   {
     path: "mySales",
-    component: UserSalesComponent
+    component: UserSalesComponent,
+    canActivate: [AuthenticationGuard]
+  },
+  {
+    path: "update-game/:gameID",
+    component: UpdateGameComponent,
+    canActivate: [AuthenticationGuard]
   }
 ];

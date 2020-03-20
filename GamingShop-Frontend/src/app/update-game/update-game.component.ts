@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { GameModel } from "../shared/Models/game-model";
 import { GameService } from "../shared/Services/game.service";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 @Component({
@@ -18,7 +18,8 @@ export class UpdateGameComponent implements OnInit {
   constructor(
     private gameService: GameService,
     private routes: ActivatedRoute,
-    private builder: FormBuilder
+    private builder: FormBuilder,
+    private router: Router
   ) {
     this.routes.params.subscribe(param => {
       this.gameID = param["gameID"];
@@ -49,7 +50,7 @@ export class UpdateGameComponent implements OnInit {
     this.updatedGameModel = this.buildModel(this.formGroup);
     this.gameService.updateGame(this.updatedGameModel, this.gameID).subscribe(
       res => {
-        window.location.reload();
+        this.router.navigateByUrl("mySales");
       },
       error => console.log(error)
     );

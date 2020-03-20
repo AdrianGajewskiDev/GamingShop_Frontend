@@ -7,7 +7,7 @@ export class CartService {
   constructor(private http: HttpClient) {}
   URL = "http://localhost:55367/api";
   addToCart(gameID: number) {
-    return this.http.post(this.URL + "/Cart/AddItemToCart", gameID);
+    return this.http.post(this.URL + "/Cart/AddItemToCart/" + gameID, null);
   }
 
   getAllByCart() {

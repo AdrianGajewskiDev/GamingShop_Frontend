@@ -2,8 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { GameModel } from "../shared/Models/game-model";
 import { GameService } from "../shared/Services/game.service";
-import { UserService } from "../shared/Services/user.service";
-import { StringifyOptions } from "querystring";
+import { CartService } from "../shared/Services/cart.service";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-game-details",
@@ -13,7 +13,9 @@ import { StringifyOptions } from "querystring";
 export class GameDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
-    private gameService: GameService
+    private gameService: GameService,
+    private cartService: CartService,
+    private toastr: ToastrService
   ) {}
   game: GameModel = new GameModel();
   id: number;
@@ -25,6 +27,7 @@ export class GameDetailsComponent implements OnInit {
     });
 
     this.game = this.getGameDetails();
+    console.log(this.id);
   }
 
   getGameDetails(): GameModel {
@@ -50,5 +53,14 @@ export class GameDetailsComponent implements OnInit {
       );
 
     return data;
+  }
+
+  addToCart() {
+    this.cartService.addToCart(this.id).subscribe(
+      res => {
+        this.toastr.info("Your item has been added to your cart");
+      },
+      error => console.log(error)
+    );
   }
 }

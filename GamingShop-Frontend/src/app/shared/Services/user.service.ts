@@ -57,6 +57,7 @@ export class UserService {
   forgetPassword(email: string) {
     return this.http.post(this.URL + "/User/ForgetPassword/" + email, null);
   }
+
   forgetPasswordCallback(model: NewPasswordModel) {
     return this.http.post(this.URL + "/User/ForgetPasswordCallback", model);
   }

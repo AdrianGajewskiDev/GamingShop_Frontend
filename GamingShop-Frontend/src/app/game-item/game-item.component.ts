@@ -11,6 +11,7 @@ import { ToastrService } from "node_modules/ngx-toastr";
 export class GameItemComponent implements OnInit {
   @Input() gameDetails;
   imagePath: string;
+  userSignedIn: boolean;
   constructor(
     private router: Router,
     private service: CartService,
@@ -19,6 +20,8 @@ export class GameItemComponent implements OnInit {
 
   ngOnInit() {
     this.imagePath = "../../assets/img/" + this.gameDetails.ImageUrl;
+
+    this.userSignedIn = localStorage.getItem("token") != null;
   }
 
   goToDetails(id: number): void {
@@ -26,10 +29,13 @@ export class GameItemComponent implements OnInit {
   }
 
   addToCart() {
-    this.service
-      .addToCart(this.gameDetails.ID)
-      .subscribe(res => console.log("OK"));
-
-    this.toastr.success("Your item has been addded to your cart !!");
+    if (this.userSignedIn) {
+      this.service
+        .addToCart(this.gameDetails.ID)
+        .subscribe(res => console.log("OK"));
+      this.toastr.success("Your item has been addded to your cart !!");
+    } else {
+      this.router.navigateByUrl("login");
+    }
   }
 }

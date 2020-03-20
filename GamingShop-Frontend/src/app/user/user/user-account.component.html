@@ -1,11 +1,16 @@
 <div class="container-fluid">
   <div class="row" style="height: 83vh;">
     <div class="col-md-3 d-flex align-items-center justify-content-center">
-      <img
-        src="../../../assets/img/user.png
-      "
-        alt=""
-      />
+      <img [src]="imagePath" alt="user profile image" />
+      <div class="form-group input-box ">
+        <label for="file-cs">Upload Profile Image</label>
+        <input
+          type="file"
+          class="form-control"
+          (change)="onUploadImageChange($event)"
+          id="file-cs"
+        />
+      </div>
     </div>
     <form
       (ngSubmit)="saveChanges()"

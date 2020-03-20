@@ -7,10 +7,17 @@ export class ImageUploader {
 
   constructor(private http: HttpClient) {}
 
-  uploadImage(image: File, gameID) {
+  uploadGameImage(image: File, id) {
     let input = new FormData();
     input.append("image", image);
 
-    return this.http.post(this.URL + "/Sales/AddImage/" + gameID, input);
+    return this.http.post(this.URL + "/Sales/AddGameImage/" + id, input);
+  }
+
+  uploadUserProfileImage(image: File, id) {
+    let input = new FormData();
+    input.append("image", image);
+
+    return this.http.post(this.URL + "/Sales/AddUserProfileImage", input);
   }
 }

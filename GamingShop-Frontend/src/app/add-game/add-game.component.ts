@@ -43,14 +43,14 @@ export class AddGameComponent implements OnInit {
     this.newGameModel.Description = this.newGameForm.get("Description").value;
     this.newGameModel.Producent = this.newGameForm.get("Producent").value;
     this.newGameModel.Pegi = this.newGameForm.get("Pegi").value;
-    this.newGameModel.LaunchDate = this.newGameForm.get("LaunchDate").value;
     this.newGameModel.Type = this.newGameForm.get("Type").value;
     this.newGameModel.Platform = this.newGameForm.get("Platform").value;
     this.newGameModel.Price = this.newGameForm.get("Price").value;
     this.newGameModel.ImageUrl = this.image.name;
+    this.newGameModel.LaunchDate = this.newGameForm.get("LaunchDate").value;
     this.service.addGame(this.newGameModel).subscribe(
       res => {
-        this.imgUploader.uploadImage(this.image, res).subscribe(
+        this.imgUploader.uploadGameImage(this.image, res).subscribe(
           res => {
             this.router.navigateByUrl("/games");
           },

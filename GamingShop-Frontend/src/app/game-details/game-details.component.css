@@ -29,6 +29,11 @@
   width: 80%;
   height: 80%;
   margin-top: 5%;
+  padding: 20px;
+  background: #131419;
+  border-radius: 15px;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.05),
+    5px 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 .details {
@@ -37,12 +42,12 @@
 }
 
 .detail-item {
+  border-bottom: 2px black solid;
   display: flex;
   width: 100%;
   height: 10%;
   margin-top: 2%;
-  border-bottom: 5px solid black;
-  color: white;
+  color: #03a9f4;
 }
 
 .detail-name {
@@ -50,7 +55,7 @@
   display: flex;
   align-items: center;
   font-size: 1.5rem;
-  color: white;
+  color: #03a9f4;
 }
 
 .detail-info {
@@ -59,7 +64,7 @@
   align-items: center;
   justify-content: flex-end;
   font-size: 1.5rem;
-  color: white;
+  color: #03a9f4;
 }
 
 .detail-item h1 {
@@ -79,8 +84,7 @@
 }
 
 .detail-price {
-  color: white;
-
+  color: #03a9f4;
   width: 40%;
   display: flex;
   justify-content: center;
@@ -91,4 +95,14 @@
 .btn {
   padding-left: 50px !important;
   padding-right: 50px !important;
+  background: #131419;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  padding: 5px 15px;
+  color: #fff;
+  font-size: 18px;
+  color: #03a9f4;
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.05),
+    5px 5px 15px rgba(0, 0, 0, 0.5);
 }

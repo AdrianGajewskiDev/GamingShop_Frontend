@@ -11,6 +11,7 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   readonly URL = "http://localhost:55367/api";
+
   isUserLoggedIn = localStorage.getItem("token") != null;
 
   private handleError(error: HttpErrorResponse) {

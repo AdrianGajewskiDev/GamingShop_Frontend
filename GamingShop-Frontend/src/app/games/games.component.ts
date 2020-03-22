@@ -5,7 +5,7 @@ import { GameIndexModel } from "../shared/Models/game-index-model";
 @Component({
   selector: "app-games",
   templateUrl: "./games.component.html",
-  styles: []
+  styleUrls: ["./games.component.css"]
 })
 export class GamesComponent implements OnInit {
   public games: GameIndexModel[];

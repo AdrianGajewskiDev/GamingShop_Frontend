@@ -11,6 +11,7 @@ import { UserService } from "../shared/Services/user.service";
 import { UserModel } from "../shared/Models/user.model";
 import { Router } from "@angular/router";
 import { UserLoginModel } from "../shared/Models/user-login.model";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-register",
@@ -21,11 +22,14 @@ export class RegisterComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private service: UserService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {}
 
   @Input() passwordMisMatch;
 
+  submited = false;
+  registrationPassed = false;
   registerForm: FormGroup;
 
   ngOnInit() {
@@ -51,26 +55,41 @@ export class RegisterComponent implements OnInit {
   }
 
   async onSubmit() {
+    this.submited = true;
+
     var model: UserModel = {
       UserName: this.registerForm.get("username").value,
       Email: this.registerForm.get("email").value,
       Password: this.registerForm.get("password").value,
       PhoneNumber: this.registerForm.get("phoneNumber").value
     };
-    this.service.registerUser(model).subscribe();
 
-    var userLoginModel: UserLoginModel = {
-      Username: model.UserName,
-      Password: model.Password
-    };
+    this.service.registerUser(model).subscribe(
+      res => {
+        this.registrationPassed = true;
+      },
+      error => {
+        this.registrationPassed = false;
+        this.submited = false;
+        this.toastr.error("Registration Failed!!! Please try again");
+      }
+    );
 
     await this.delay(2000);
-    //if user successfully created then login him
-    this.service.login(userLoginModel).subscribe((res: any) => {
-      localStorage.setItem("token", res.token);
-      this.service.isUserLoggedIn = true;
-    });
 
-    this.router.navigateByUrl("/games");
+    if (this.registrationPassed == true) {
+      var userLoginModel: UserLoginModel = {
+        Username: model.UserName,
+        Password: model.Password
+      };
+
+      //if user successfully created then login him
+      this.service.login(userLoginModel).subscribe((res: any) => {
+        localStorage.setItem("token", res.token);
+        this.service.isUserLoggedIn = true;
+      });
+
+      this.router.navigateByUrl("/games");
+    }
   }
 }

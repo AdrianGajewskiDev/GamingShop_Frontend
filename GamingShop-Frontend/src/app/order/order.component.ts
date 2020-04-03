@@ -22,6 +22,7 @@ export class OrderComponent implements OnInit {
 
   cardID: number;
   orderForm: FormGroup;
+  sumbited = false;
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.cardID = params["cartID"];
@@ -41,6 +42,7 @@ export class OrderComponent implements OnInit {
   }
 
   onSubmit() {
+    this.sumbited = true;
     var orderModel: OrderModel = {
       FirstName: this.orderForm.get("FirstName").value,
       LastName: this.orderForm.get("LastName").value,

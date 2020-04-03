@@ -1,16 +1,17 @@
 import { Injectable } from "@angular/core";
 import { UserModel } from "../Models/user.model";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
-import { throwError } from "rxjs";
+import { throwError, BehaviorSubject } from "rxjs";
 import { UserLoginModel } from "../Models/user-login.model";
 import { NewPasswordModel } from "../Models/newPassword.mode";
 import { SaleModel } from "../Models/sale.model";
+import { map } from "rxjs/operators";
 
 @Injectable()
 export class UserService {
   constructor(private http: HttpClient) {}
 
-  readonly URL = "http://localhost:55367/api";
+  readonly URL = "https://localhost:44313/api";
 
   isUserLoggedIn = localStorage.getItem("token") != null;
 
@@ -25,6 +26,7 @@ export class UserService {
     return throwError("Something bad happened; please try again later.");
   }
 
+  //#region api calls methods
   registerUser(model: UserModel) {
     return this.http.post<UserModel>(this.URL + "/User/register", model);
   }
@@ -34,7 +36,7 @@ export class UserService {
   }
 
   getUserProfile() {
-    return this.http.get<UserModel>(this.URL + "/UserProfile");
+    return this.http.get<UserModel>(this.URL + "/UserProfile").pipe();
   }
 
   updateUsername(username: string) {
@@ -70,4 +72,12 @@ export class UserService {
   getUserSales() {
     return this.http.get<SaleModel[]>(this.URL + "/Sales/UserSales");
   }
+
+  externalLogin(provider: string) {
+    return this.http.post(
+      this.URL + "/ExternalLoginProvider/ExternalSignIn/" + provider,
+      null
+    );
+  }
+  //#endregion
 }

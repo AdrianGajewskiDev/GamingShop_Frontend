@@ -10,7 +10,7 @@ import { GameIndexModel } from "../shared/Models/game-index-model";
 export class GamesComponent implements OnInit {
   public games: GameIndexModel[];
   searchQuery: string;
-
+  dataLoaded = false;
   constructor(private service: GameService) {}
 
   ngOnInit() {
@@ -22,7 +22,9 @@ export class GamesComponent implements OnInit {
     } else {
       this.service
         .getGamesBySearchQuery(this.searchQuery)
-        .subscribe(response => (this.games = response));
+        .subscribe(
+          response => ((this.games = response), (this.dataLoaded = true))
+        );
     }
 
     localStorage.removeItem("searchQuery");
@@ -34,6 +36,7 @@ export class GamesComponent implements OnInit {
     this.service.getGames().subscribe(response => {
       response.forEach(element => {
         model.push(element);
+        this.dataLoaded = true;
       });
     });
 

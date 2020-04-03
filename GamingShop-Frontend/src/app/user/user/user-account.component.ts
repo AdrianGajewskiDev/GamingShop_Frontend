@@ -26,6 +26,7 @@ export class UserAccountComponent implements OnInit {
 
   ngOnInit() {
     this.userData = this.getUserData();
+
     this.formData = this.fb.group({
       Username: [""],
       Email: [""],

@@ -5,7 +5,7 @@ import { GameModel } from "../Models/game-model";
 @Injectable()
 export class CartService {
   constructor(private http: HttpClient) {}
-  URL = "http://localhost:55367/api";
+  URL = "https://localhost:44313/api";
   addToCart(gameID: number) {
     return this.http.post(this.URL + "/Cart/AddItemToCart/" + gameID, null);
   }

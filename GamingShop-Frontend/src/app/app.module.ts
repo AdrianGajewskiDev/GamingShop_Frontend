@@ -36,6 +36,8 @@ import { ImageUploader } from "./shared/HelperClasses/imageUploader";
 import { UserSalesComponent } from "./user-sales/user-sales.component";
 import { SaleItemComponent } from './sale-item/sale-item.component';
 import { UpdateGameComponent } from './update-game/update-game.component';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,9 @@ import { UpdateGameComponent } from './update-game/update-game.component';
     AddGameComponent,
     UserSalesComponent,
     SaleItemComponent,
-    UpdateGameComponent
+    UpdateGameComponent,
+    LoadingSpinnerComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

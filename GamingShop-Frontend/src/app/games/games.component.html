@@ -1,5 +1,6 @@
 <div class="container">
   <div class="row pt-5">
+    <app-loading-spinner *ngIf="dataLoaded == false"></app-loading-spinner>
     <app-game-item
       *ngFor="let game of games"
       class="col-md-4"

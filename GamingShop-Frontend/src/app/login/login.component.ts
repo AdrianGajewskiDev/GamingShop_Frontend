@@ -72,6 +72,8 @@ export class LoginComponent implements OnInit {
         break;
     }
 
-    console.log(provider);
+    this.service
+      .externalLogin(provider)
+      .subscribe(res => console.log("Success!!"));
   }
 }

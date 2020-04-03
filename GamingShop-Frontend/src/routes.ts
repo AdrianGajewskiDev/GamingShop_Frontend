@@ -14,6 +14,7 @@ import { ForgetPasswordNewComponent } from "./app/forget-password-new/forget-pas
 import { AddGameComponent } from "./app/add-game/add-game.component";
 import { UserSalesComponent } from "./app/user-sales/user-sales.component";
 import { UpdateGameComponent } from "./app/update-game/update-game.component";
+import { NotFoundComponent } from "./app/not-found/not-found.component";
 
 export const appRoutes: Routes = [
   {

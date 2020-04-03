@@ -1,4 +1,5 @@
 <div class="container p-5">
+  <app-loading-spinner *ngIf="submited == true"></app-loading-spinner>
   <form [formGroup]="orderForm" (ngSubmit)="onSubmit()" class="form">
     <div class="form-group input-box">
       <input

@@ -16,7 +16,7 @@ export class AddGameComponent implements OnInit {
   newGameForm: FormGroup;
   newGameModel: NewGameModel = new NewGameModel();
   returnedGameID;
-
+  submited = false;
   constructor(
     private fb: FormBuilder,
     private service: GameService,
@@ -39,6 +39,7 @@ export class AddGameComponent implements OnInit {
   }
 
   onSubmit() {
+    this.submited = true;
     this.newGameModel.Title = this.newGameForm.get("Title").value;
     this.newGameModel.Description = this.newGameForm.get("Description").value;
     this.newGameModel.Producent = this.newGameForm.get("Producent").value;

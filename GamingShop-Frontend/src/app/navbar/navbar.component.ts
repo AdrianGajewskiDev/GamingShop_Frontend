@@ -18,7 +18,9 @@ export class NavbarComponent implements OnInit {
       searchInput: new FormControl()
     });
   }
-
+  goToHome() {
+    this.router.navigateByUrl("/games");
+  }
   updateSearchQuery(): void {
     this.searchQuery = this.searchForm.get("searchInput").value;
   }

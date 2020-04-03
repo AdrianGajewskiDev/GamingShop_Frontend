@@ -7,7 +7,7 @@ import { GameIndexModel } from "../Models/game-index-model";
 export class GameService {
   constructor(private http: HttpClient) {}
 
-  URL = "http://localhost:55367/api";
+  URL = "https://localhost:44313/api";
   getGames() {
     return this.http.get<GameIndexModel[]>(this.URL + "/Games/GetAll");
   }

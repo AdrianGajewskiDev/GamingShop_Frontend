@@ -67,8 +67,7 @@ export const appRoutes: Routes = [
   },
   {
     path: "resetPassword/:userID/:token",
-    component: ForgetPasswordNewComponent,
-    canActivate: [AuthenticationGuard]
+    component: ForgetPasswordNewComponent
   },
   {
     path: "addGame",

@@ -20,7 +20,7 @@ export class ForgetPasswordNewComponent implements OnInit {
   userID: string;
   token: string;
   confirmationToken: string;
-
+  submit = false;
   form: FormGroup;
   model: NewPasswordModel = new NewPasswordModel();
 
@@ -40,6 +40,7 @@ export class ForgetPasswordNewComponent implements OnInit {
   }
 
   onSubmit() {
+    this.submit = true;
     this.model.JWTToken = this.token;
     this.model.UserID = this.userID;
     this.model.Password = this.form.get("password").value;

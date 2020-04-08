@@ -8,7 +8,7 @@ import { ImageUploader } from "../../shared/HelperClasses/imageUploader";
 @Component({
   selector: "app-user-account",
   templateUrl: "./user-account.component.html",
-  styleUrls: ["./user-account.component.css"]
+  styleUrls: ["./user-account.component.css"],
 })
 export class UserAccountComponent implements OnInit {
   userData: UserModel = new UserModel();
@@ -30,10 +30,8 @@ export class UserAccountComponent implements OnInit {
     this.formData = this.fb.group({
       Username: [""],
       Email: [""],
-      PhoneNumber: [""]
+      PhoneNumber: [""],
     });
-
-    console.log(this.imagePath);
   }
 
   toggleBtn() {
@@ -46,7 +44,7 @@ export class UserAccountComponent implements OnInit {
     this.service
       .getUserProfile()
       .subscribe(
-        res => (
+        (res) => (
           (data.ID = res.ID),
           (data.UserName = res.UserName),
           (data.Email = res.Email),
@@ -62,7 +60,7 @@ export class UserAccountComponent implements OnInit {
   }
 
   delay(ms: number) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+    return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
   async onBlurMethod() {
@@ -80,13 +78,13 @@ export class UserAccountComponent implements OnInit {
     let data_PhoneNumber = this.formData.get("PhoneNumber").value;
 
     if (data_Username != "" && this.userData.UserName != data_Username) {
-      this.service.updateUsername(data_Username).subscribe(res => {
+      this.service.updateUsername(data_Username).subscribe((res) => {
         window.location.reload();
       });
     }
 
     if (data_Email != "" && this.userData.Email != data_Email) {
-      this.service.updateEmail(data_Email).subscribe(res => {
+      this.service.updateEmail(data_Email).subscribe((res) => {
         window.location.reload();
       });
     }
@@ -95,7 +93,7 @@ export class UserAccountComponent implements OnInit {
       data_PhoneNumber != "" &&
       this.userData.PhoneNumber != data_PhoneNumber
     ) {
-      this.service.updatePhoneNumber(data_PhoneNumber).subscribe(res => {
+      this.service.updatePhoneNumber(data_PhoneNumber).subscribe((res) => {
         window.location.reload();
       });
     }
@@ -119,10 +117,10 @@ export class UserAccountComponent implements OnInit {
     return this.imageService
       .uploadUserProfileImage(this.file, this.userData.ID)
       .subscribe(
-        res => {
+        (res) => {
           console.log("Succeeded!!!!!");
         },
-        error => console.log(error)
+        (error) => console.log(error)
       );
   }
 }

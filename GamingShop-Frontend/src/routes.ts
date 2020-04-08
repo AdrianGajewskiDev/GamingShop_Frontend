@@ -15,73 +15,85 @@ import { AddGameComponent } from "./app/add-game/add-game.component";
 import { UserSalesComponent } from "./app/user-sales/user-sales.component";
 import { UpdateGameComponent } from "./app/update-game/update-game.component";
 import { NotFoundComponent } from "./app/not-found/not-found.component";
+import { MessagesComponent } from "./app/messages/messages.component";
+import { MessageComponent } from "./app/message/message.component";
 
 export const appRoutes: Routes = [
   {
     path: "",
-    component: GamesComponent
+    component: GamesComponent,
   },
   {
     path: "games",
-    component: GamesComponent
+    component: GamesComponent,
   },
   {
     path: "details/:id",
-    component: GameDetailsComponent
+    component: GameDetailsComponent,
   },
   {
     path: "user",
     component: UserAccountComponent,
-    canActivate: [AuthenticationGuard]
+    canActivate: [AuthenticationGuard],
   },
   {
     path: "login",
-    component: LoginComponent
+    component: LoginComponent,
   },
   {
     path: "register",
-    component: RegisterComponent
+    component: RegisterComponent,
   },
   {
     path: "EmailConfirmation",
-    component: EmailConfirmationComponent
+    component: EmailConfirmationComponent,
   },
   {
     path: "cart",
     component: CartComponent,
-    canActivate: [AuthenticationGuard]
+    canActivate: [AuthenticationGuard],
   },
   {
     path: "order/:cartID",
     component: OrderComponent,
-    canActivate: [AuthenticationGuard]
+    canActivate: [AuthenticationGuard],
   },
   {
     path: "latestOrders",
     component: LatestOrdersComponent,
-    canActivate: [AuthenticationGuard]
+    canActivate: [AuthenticationGuard],
   },
   {
     path: "forgetPassword",
-    component: ForgetPasswordComponent
+    component: ForgetPasswordComponent,
   },
   {
     path: "resetPassword/:userID/:token",
-    component: ForgetPasswordNewComponent
+    component: ForgetPasswordNewComponent,
   },
   {
     path: "addGame",
     component: AddGameComponent,
-    canActivate: [AuthenticationGuard]
+    canActivate: [AuthenticationGuard],
   },
   {
     path: "mySales",
     component: UserSalesComponent,
-    canActivate: [AuthenticationGuard]
+    canActivate: [AuthenticationGuard],
   },
   {
     path: "update-game/:gameID",
     component: UpdateGameComponent,
-    canActivate: [AuthenticationGuard]
-  }
+    canActivate: [AuthenticationGuard],
+  },
+  {
+    path: "messages",
+    component: MessagesComponent,
+    canActivate: [AuthenticationGuard],
+  },
+  {
+    path: "sendMessage/:gameID",
+    component: MessageComponent,
+    canActivate: [AuthenticationGuard],
+  },
 ];

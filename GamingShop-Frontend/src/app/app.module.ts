@@ -34,10 +34,13 @@ import { ForgetPasswordNewComponent } from "./forget-password-new/forget-passwor
 import { AddGameComponent } from "./add-game/add-game.component";
 import { ImageUploader } from "./shared/HelperClasses/imageUploader";
 import { UserSalesComponent } from "./user-sales/user-sales.component";
-import { SaleItemComponent } from './sale-item/sale-item.component';
-import { UpdateGameComponent } from './update-game/update-game.component';
-import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { SaleItemComponent } from "./sale-item/sale-item.component";
+import { UpdateGameComponent } from "./update-game/update-game.component";
+import { LoadingSpinnerComponent } from "./loading-spinner/loading-spinner.component";
+import { NotFoundComponent } from "./not-found/not-found.component";
+import { MessageService } from "./shared/Services/message.service";
+import { MessagesComponent } from './messages/messages.component';
+import { MessageComponent } from './message/message.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +65,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
     SaleItemComponent,
     UpdateGameComponent,
     LoadingSpinnerComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    MessagesComponent,
+    MessageComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,7 +76,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
   ],
   providers: [
     GameService,
@@ -81,10 +86,11 @@ import { NotFoundComponent } from './not-found/not-found.component';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthorizationInterceptor,
-      multi: true
+      multi: true,
     },
-    ImageUploader
+    ImageUploader,
+    MessageService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

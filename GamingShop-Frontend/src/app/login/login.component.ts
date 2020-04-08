@@ -3,7 +3,7 @@ import {
   FormControl,
   FormGroup,
   FormBuilder,
-  Validators
+  Validators,
 } from "@angular/forms";
 
 import { UserLoginModel } from "../shared/Models/user-login.model";
@@ -13,7 +13,7 @@ import { Router } from "@angular/router";
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.css"]
+  styleUrls: ["./login.component.css"],
 })
 export class LoginComponent implements OnInit {
   constructor(
@@ -28,24 +28,25 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.loginForm = this.fb.group({
       username: ["", [Validators.required]],
-      password: ["", [Validators.required, Validators.minLength(8)]]
+      password: ["", [Validators.required, Validators.minLength(8)]],
     });
   }
 
   onSubmit() {
     var model: UserLoginModel = {
       Username: this.loginForm.get("username").value,
-      Password: this.loginForm.get("password").value
+      Password: this.loginForm.get("password").value,
     };
 
     this.service.login(model).subscribe(
       (res: any) => {
         this.showError = false;
         localStorage.setItem("token", res.token);
+        localStorage.setItem("UserID", res.userID);
         this.router.navigateByUrl("/games");
         this.service.isUserLoggedIn = true;
       },
-      error => {
+      (error) => {
         if (error.status == "400") this.showError = true;
       }
     );
@@ -74,6 +75,6 @@ export class LoginComponent implements OnInit {
 
     this.service
       .externalLogin(provider)
-      .subscribe(res => console.log("Success!!"));
+      .subscribe((res) => console.log("Success!!"));
   }
 }

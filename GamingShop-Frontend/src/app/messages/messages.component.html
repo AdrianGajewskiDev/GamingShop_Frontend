@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="col-md-12">
+    <div class="row">
+      <aside class="col-md-2 side-panel">
+        <ul class="side-panel-list">
+          <li class="side-panel-list-item">Inbox</li>
+          <li class="side-panel-list-item">Sent</li>
+          <li class="side-panel-list-item">New Messages</li>
+        </ul>
+      </aside>
+      <table class="table table-bordered table-hover col-md-10">
+        <thead>
+          <tr>
+            <th scope="col">Sent</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Recipient</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            [ngClass]="{ unread: msg.Read == false }"
+            *ngFor="let msg of messages.MessagesSentToUser"
+          >
+            <td>{{ msg.Sent }}</td>
+            <td>{{ msg.Subject }}</td>
+            <td>{{ msg.RecipientEmail }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

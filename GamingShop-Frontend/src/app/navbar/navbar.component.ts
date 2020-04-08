@@ -5,7 +5,7 @@ import { Router } from "@angular/router";
 @Component({
   selector: "app-navbar",
   templateUrl: "./navbar.component.html",
-  styleUrls: ["./navbar.component.css"]
+  styleUrls: ["./navbar.component.css"],
 })
 export class NavbarComponent implements OnInit {
   constructor(private service: UserService, private router: Router) {}
@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.searchForm = new FormGroup({
-      searchInput: new FormControl()
+      searchInput: new FormControl(),
     });
   }
   goToHome() {
@@ -37,6 +37,11 @@ export class NavbarComponent implements OnInit {
 
   onLogout() {
     localStorage.removeItem("token");
+    localStorage.removeItem("UserID");
     window.location.reload();
+  }
+
+  goToMessages() {
+    this.router.navigateByUrl("/messages");
   }
 }

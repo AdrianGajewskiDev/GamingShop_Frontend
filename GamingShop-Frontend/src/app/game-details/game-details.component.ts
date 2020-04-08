@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { GameModel } from "../shared/Models/game-model";
 import { GameService } from "../shared/Services/game.service";
 import { CartService } from "../shared/Services/cart.service";
@@ -8,21 +8,22 @@ import { ToastrService } from "ngx-toastr";
 @Component({
   selector: "app-game-details",
   templateUrl: "./game-details.component.html",
-  styleUrls: ["./game-details.component.css"]
+  styleUrls: ["./game-details.component.css"],
 })
 export class GameDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private gameService: GameService,
     private cartService: CartService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private router: Router
   ) {}
   game: GameModel = new GameModel();
   id: number;
   seller_Username = "";
   imagePath: string;
   ngOnInit() {
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe((params) => {
       this.id = params["id"];
     });
 
@@ -36,7 +37,7 @@ export class GameDetailsComponent implements OnInit {
     this.gameService
       .getGameByID(this.id)
       .subscribe(
-        res => (
+        (res) => (
           (data.Title = res.Title),
           (data.Description = res.Description),
           (data.ID = res.ID),
@@ -57,10 +58,14 @@ export class GameDetailsComponent implements OnInit {
 
   addToCart() {
     this.cartService.addToCart(this.id).subscribe(
-      res => {
+      (res) => {
         this.toastr.info("Your item has been added to your cart");
       },
-      error => console.log(error)
+      (error) => console.log(error)
     );
+  }
+
+  sendMessage() {
+    this.router.navigateByUrl("sendMessage/" + this.id);
   }
 }

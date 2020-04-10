@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <div class="col-md-12">
+    <div class="row">
+      <aside class="col-md-2 side-panel">
+        <ul class="side-panel-list">
+          <li class="side-panel-list-item">
+            <a (click)="showMsgTo()">Inbox</a>
+          </li>
+          <li class="side-panel-list-item">
+            <a (click)="showMsgBy()">Sent</a>
+          </li>
+        </ul>
+      </aside>
+      <table class="col-md-10 table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Sent</th>
+            <th scope="col">Subject</th>
+            <th *ngIf="type == 'by'" th scope="col">Recipient</th>
+            <th *ngIf="type == 'to'" th scope="col">From</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let msg of message"
+            [ngClass]="{ unread: msg.Read == false }"
+          >
+            <td>{{ msg.Sent }}</td>
+            <td>{{ msg.Subject }}</td>
+            <td *ngIf="type == 'by'">{{ msg.RecipientEmail }}</td>
+            <td *ngIf="type == 'to'">
+              {{ msg.SenderEmail }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -4,13 +4,13 @@ import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
   UrlTree,
-  Router
+  Router,
 } from "@angular/router";
 import { Observable } from "rxjs";
-import { LoginComponent } from "../../login/login.component";
+import { LoginComponent } from "../../UserProfile/login/login.component";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class AuthenticationGuard implements CanActivate {
   constructor(private router: Router) {}

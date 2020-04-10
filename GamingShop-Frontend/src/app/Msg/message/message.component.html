@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>New Message</h1>
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="form-cst">
+    <div class="form-item">
+      <p>Subject</p>
+      <input type="text" formControlName="subject" />
+    </div>
+    <div class="form-item">
+      <p>Content</p>
+      <textarea formControlName="content"></textarea>
+    </div>
+    <div class="form-item">
+      <button type="submit">Send</button>
+    </div>
+  </form>
+</div>

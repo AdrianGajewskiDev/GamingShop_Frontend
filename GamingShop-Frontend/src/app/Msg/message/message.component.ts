@@ -20,12 +20,12 @@ export class MessageComponent implements OnInit {
     private router: Router
   ) {}
 
-  private gameID;
+  private itemID;
   private userID = localStorage.getItem("UserID");
   private formGroup: FormGroup;
   ngOnInit() {
     this.route.params.subscribe((param) => {
-      this.gameID = param["gameID"];
+      this.itemID = param["gameID"];
     });
 
     this.formGroup = this.fb.group({
@@ -40,7 +40,8 @@ export class MessageComponent implements OnInit {
     model.Content = this.formGroup.get("content").value;
     model.Subject = this.formGroup.get("subject").value;
     model.SenderID = localStorage.getItem("UserID");
-    model.GameID = this.gameID;
+    model.GameID = this.itemID;
+    model.Replying = false;
 
     this.service.sendMessage(model).subscribe(
       (res) => {

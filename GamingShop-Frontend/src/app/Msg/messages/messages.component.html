@@ -24,6 +24,7 @@
           <tr
             *ngFor="let msg of message"
             [ngClass]="{ unread: msg.Read == false }"
+            (click)="goToDetails(msg.ID)"
           >
             <td>{{ msg.Sent }}</td>
             <td>{{ msg.Subject }}</td>

@@ -3,4 +3,5 @@ export class NewMessage {
   Content: string;
   Subject: string;
   GameID: number;
+  Replying: boolean;
 }

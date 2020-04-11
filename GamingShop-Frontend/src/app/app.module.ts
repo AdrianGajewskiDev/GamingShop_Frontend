@@ -41,6 +41,7 @@ import { NotFoundComponent } from "./App-related/not-found/not-found.component";
 import { MessageService } from "./shared/Services/message.service";
 import { MessagesComponent } from "./Msg/messages/messages.component";
 import { MessageComponent } from "./Msg/message/message.component";
+import { MessageDetailsComponent } from './Msg/message-details/message-details.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { MessageComponent } from "./Msg/message/message.component";
     NotFoundComponent,
     MessagesComponent,
     MessageComponent,
+    MessageDetailsComponent,
   ],
   imports: [
     BrowserModule,

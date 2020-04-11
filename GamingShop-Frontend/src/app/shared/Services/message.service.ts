@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Messages } from "../Models/messages.model";
 import { NewMessage } from "../Models/newMessage.model";
+import { Message } from "../Models/message.model";
 
 @Injectable()
 export class MessageService {
@@ -16,5 +17,13 @@ export class MessageService {
 
   sendMessage(model: NewMessage) {
     return this.client.post(this.baseURL + "/SendMessage", model);
+  }
+
+  sendMessageMSG(model: Message) {
+    return this.client.post(this.baseURL + "/SendMessage", model);
+  }
+
+  getMessageDetails(msgID: number): Observable<Message> {
+    return this.client.get<Message>(this.baseURL + "/ByID/" + msgID);
   }
 }

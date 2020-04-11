@@ -17,6 +17,7 @@ import { UpdateGameComponent } from "./app/Game/update-game/update-game.componen
 import { NotFoundComponent } from "./app/App-related/not-found/not-found.component";
 import { MessagesComponent } from "./app/Msg/messages/messages.component";
 import { MessageComponent } from "./app/Msg/message/message.component";
+import { MessageDetailsComponent } from "./app/Msg/message-details/message-details.component";
 
 export const appRoutes: Routes = [
   {
@@ -89,6 +90,11 @@ export const appRoutes: Routes = [
   {
     path: "messages",
     component: MessagesComponent,
+    canActivate: [AuthenticationGuard],
+  },
+  {
+    path: "message/:id",
+    component: MessageDetailsComponent,
     canActivate: [AuthenticationGuard],
   },
   {

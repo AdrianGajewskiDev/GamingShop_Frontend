@@ -7,5 +7,6 @@ export class Message {
   Content: string;
   Subject: string;
   Read: boolean;
-  Sent: Date;
+  Sent: string;
+  Replying: boolean;
 }

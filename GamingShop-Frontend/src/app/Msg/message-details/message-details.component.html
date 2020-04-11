@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="container-cst">
+        <div class="msg-header">
+          <h1>{{ message.Subject }}</h1>
+          <p>SenderEmail: {{ message.SenderEmail }}</p>
+          <p>RecipientEmail: {{ message.RecipientEmail }}</p>
+          <p>{{ message.Sent }}</p>
+        </div>
+        <div class="msg-details">
+          <div class="content">
+            <p>{{ message.Content }}</p>
+          </div>
+          <textarea
+            placeholder="Reply..."
+            id="reply"
+            cols="25"
+            rows="10"
+            [(ngModel)]="replyContent"
+          ></textarea>
+          <a (click)="reply()">Reply</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

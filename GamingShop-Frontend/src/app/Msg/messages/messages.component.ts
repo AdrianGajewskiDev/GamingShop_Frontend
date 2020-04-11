@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Messages } from "../../shared/Models/messages.model";
 import { Router, ActivatedRoute } from "@angular/router";
 import { MessageService } from "src/app/shared/Services/message.service";
-import { Message } from "@angular/compiler/src/i18n/i18n_ast";
+import { Message } from "../../shared/Models/message.model";
 
 @Component({
   selector: "app-messages",
@@ -22,16 +22,22 @@ export class MessagesComponent implements OnInit {
     if (this.type == null) this.type = "to";
 
     this.service.getUserMessages(this.userID).subscribe(
-      (res) => {
+      (res: any) => {
         switch (this.type) {
           case "by":
             {
               this.message = res.MessagesSentByUser;
+              this.message.forEach(
+                (el) => (el.Sent = this.formatDate(new Date(el.Sent)))
+              );
             }
             break;
           case "to":
             {
               this.message = res.MessagesSentToUser;
+              this.message.forEach(
+                (el) => (el.Sent = this.formatDate(new Date(el.Sent)))
+              );
             }
             break;
         }
@@ -44,8 +50,17 @@ export class MessagesComponent implements OnInit {
     localStorage.setItem("msgType", "to");
     window.location.reload();
   }
+
   showMsgBy() {
     localStorage.setItem("msgType", "by");
     window.location.reload();
+  }
+
+  goToDetails(id: number) {
+    this.router.navigateByUrl("message/" + id);
+  }
+
+  formatDate(date: Date): string {
+    return `${date.toLocaleDateString()}/${date.toLocaleTimeString()}`;
   }
 }

@@ -24,3 +24,26 @@
 .row {
   min-height: 80vh;
 }
+
+.pag-btns {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.pag-btns a {
+  padding: 10px;
+  width: 100px;
+  text-align: center;
+  color: white;
+  margin-bottom: 5px;
+  background-color: black;
+  border-radius: 15px;
+}
+.pag-btns p {
+  font-size: 1.4rem;
+}
+
+.active {
+  border-bottom: 2px solid grey;
+}

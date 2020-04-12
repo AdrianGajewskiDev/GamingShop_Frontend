@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Messages } from "../Models/messages.model";
 import { NewMessage } from "../Models/newMessage.model";
@@ -11,8 +11,21 @@ export class MessageService {
 
   constructor(private client: HttpClient) {}
 
-  getUserMessages(userID: string): Observable<Messages> {
-    return this.client.get<Messages>(this.baseURL + "/GetMessages");
+  getUserMessages(
+    userID: string,
+    pageIndex: number,
+    pageSize: number = 15,
+    type: string = "by"
+  ) {
+    return this.client.get<Messages>(
+      this.baseURL +
+        "/GetMessages/" +
+        type +
+        "?pageIndex=" +
+        pageIndex +
+        "&pageSize=" +
+        pageSize
+    );
   }
 
   sendMessage(model: NewMessage) {

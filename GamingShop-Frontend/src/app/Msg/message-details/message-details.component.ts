@@ -3,6 +3,7 @@ import { Message } from "../../shared/Models/message.model";
 import { MessageService } from "src/app/shared/Services/message.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { NewMessage } from "src/app/shared/Models/newMessage.model";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-message-details",
@@ -13,12 +14,14 @@ export class MessageDetailsComponent implements OnInit {
   constructor(
     private service: MessageService,
     private routes: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {}
 
   private message: Message;
   private msgID: number;
   private replyContent: string;
+  private sentByCurrentUser: boolean;
 
   ngOnInit() {
     this.routes.params.subscribe((param) => {
@@ -28,12 +31,19 @@ export class MessageDetailsComponent implements OnInit {
     this.service.getMessageDetails(this.msgID).subscribe(
       (res: any) => {
         this.message = res;
+        this.sentByCurrentUser =
+          this.message.SenderID == localStorage.getItem("UserID");
       },
       (error) => console.log(error)
     );
   }
 
   reply() {
+    if (this.sentByCurrentUser == true) {
+      this.toastr.info("You cannot reply to your own message!!");
+      return;
+    }
+
     let model = new Message();
     model.Content = this.replyContent;
     model.RecipientEmail = this.message.SenderEmail;

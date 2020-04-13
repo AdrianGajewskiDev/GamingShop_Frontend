@@ -21,7 +21,7 @@
         placeholder="Description"
         type="text"
         required="required"
-        class="form-control "
+        class="form-control"
         formControlName="Description"
       />
     </div>
@@ -57,14 +57,15 @@
         formControlName="Pegi"
       />
     </div>
-    <div class="form-group input-box ">
-      <label for="file-cs">Select a file</label>
+    <div class="form-group input-box file-input">
+      <label for="file-cs" class="label">Photo</label>
       <input
         type="file"
-        class="form-control"
+        class="form-control file"
         (change)="onUploadImageChange($event)"
         id="file-cs"
       />
+      <label for="file-cs">Select a file</label>
     </div>
 
     <div class="form-group input-box">
@@ -72,29 +73,36 @@
         [ngClass]="{
           'form-invalid': newGameForm.get('LaunchDate').errors?.required
         }"
-        placeholder="Launch Date"
+        placeholder="Launch Date eg:DD/MM/YYYY"
         type="text"
         required="required"
         class="form-control"
         formControlName="LaunchDate"
       />
     </div>
-    <div class="form-group input-box">
-      <input
-        placeholder="Type"
-        type="text"
-        class="form-control"
+    <div class="form-group dropdown-cst">
+      <label for="dropdownMenuButton">Type</label>
+      <select
+        class="custom-select"
+        (change)="changeType($event)"
         formControlName="Type"
-      />
+      >
+        <option value="" disabled>Choose game type</option>
+        <option *ngFor="let type of types">{{ type }}</option>
+      </select>
     </div>
-    <div class="form-group input-box">
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Platform"
+    <div class="form-group dropdown-cst">
+      <label for="dropdownMenuButton">Platform</label>
+      <select
+        class="custom-select"
+        (change)="changePlatform($event)"
         formControlName="Platform"
-      />
+      >
+        <option value="" disabled>Choose platform</option>
+        <option *ngFor="let platform of platforms">{{ platform }}</option>
+      </select>
     </div>
+
     <div class="form-group">
       <input type="submit" class="btn-submit-cst" value="Add Game" />
     </div>

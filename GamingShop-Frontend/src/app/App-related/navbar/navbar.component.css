@@ -52,3 +52,11 @@
   color: #03a9f4 !important;
   font-size: 1.5rem !important;
 }
+
+.dropdown-menu {
+  background-color: #131419;
+}
+
+.dropdown-item {
+  color: #03a9f4;
+}

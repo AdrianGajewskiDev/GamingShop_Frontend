@@ -4,10 +4,14 @@
       <aside class="col-md-2 side-panel">
         <ul class="side-panel-list">
           <li class="side-panel-list-item">
-            <a (click)="showMsgTo()" id="inbox">Inbox</a>
+            <a (click)="showMsgTo()" [ngClass]="{ active: type == 'to' }"
+              >Inbox</a
+            >
           </li>
           <li class="side-panel-list-item">
-            <a (click)="showMsgBy()" id="sent">Sent</a>
+            <a (click)="showMsgBy()" [ngClass]="{ active: type == 'by' }"
+              >Sent</a
+            >
           </li>
         </ul>
       </aside>

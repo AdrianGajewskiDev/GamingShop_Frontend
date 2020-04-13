@@ -5,6 +5,8 @@ import { GameService } from "../../shared/Services/game.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { ImageUploader } from "../../shared/HelperClasses/imageUploader";
 import { GameModel } from "../../shared/Models/game-model";
+import { gameTypes } from "../../shared/Models/game-types";
+import { platforms } from "src/app/shared/Models/platforms";
 
 @Component({
   selector: "app-add-game",
@@ -17,6 +19,9 @@ export class AddGameComponent implements OnInit {
   newGameModel: NewGameModel = new NewGameModel();
   returnedGameID;
   submited = false;
+  types: string[] = gameTypes;
+  platforms: string[] = platforms;
+
   constructor(
     private fb: FormBuilder,
     private service: GameService,
@@ -66,5 +71,12 @@ export class AddGameComponent implements OnInit {
 
   onUploadImageChange(event) {
     this.image = event.target.files[0];
+  }
+
+  changeType(e) {
+    this.newGameForm.get("Type").setValue(e.target.value);
+  }
+  changePlatform(e) {
+    this.newGameForm.get("Platform").setValue(e.target.value);
   }
 }

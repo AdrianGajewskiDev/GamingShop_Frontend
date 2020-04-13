@@ -41,7 +41,8 @@ import { NotFoundComponent } from "./App-related/not-found/not-found.component";
 import { MessageService } from "./shared/Services/message.service";
 import { MessagesComponent } from "./Msg/messages/messages.component";
 import { MessageComponent } from "./Msg/message/message.component";
-import { MessageDetailsComponent } from './Msg/message-details/message-details.component';
+import { MessageDetailsComponent } from "./Msg/message-details/message-details.component";
+import { FormsMapper } from "./shared/HelperClasses/formsMapper";
 
 @NgModule({
   declarations: [
@@ -92,6 +93,7 @@ import { MessageDetailsComponent } from './Msg/message-details/message-details.c
     },
     ImageUploader,
     MessageService,
+    FormsMapper,
   ],
   bootstrap: [AppComponent],
 })

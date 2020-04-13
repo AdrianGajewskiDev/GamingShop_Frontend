@@ -1,8 +1,8 @@
 export class GameIndexModel {
-  ID: number;
-  Price: number;
-  ImageUrl: string;
-  Title: string;
-  Producent: string;
-  Platform: string;
+  ID: number = 0;
+  Price: number = 0;
+  ImageUrl: string = "";
+  Title: string = "";
+  Producent: string = "";
+  Platform: string = "";
 }

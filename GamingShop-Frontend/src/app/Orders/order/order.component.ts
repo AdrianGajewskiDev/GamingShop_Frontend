@@ -5,6 +5,7 @@ import { OrderModel } from "../../shared/Models/order.model";
 import { CartService } from "../../shared/Services/cart.service";
 import { OrderService } from "../../shared/Services/order.service";
 import { ToastrService } from "ngx-toastr";
+import { FormsMapper } from "src/app/shared/HelperClasses/formsMapper";
 
 @Component({
   selector: "app-order",
@@ -17,7 +18,8 @@ export class OrderComponent implements OnInit {
     private fb: FormBuilder,
     private orderService: OrderService,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private mapper: FormsMapper
   ) {}
 
   cardID: number;
@@ -43,21 +45,12 @@ export class OrderComponent implements OnInit {
 
   onSubmit() {
     this.sumbited = true;
-    var orderModel: OrderModel = {
-      FirstName: this.orderForm.get("FirstName").value,
-      LastName: this.orderForm.get("LastName").value,
-      Country: this.orderForm.get("Country").value,
-      City: this.orderForm.get("City").value,
-      State: this.orderForm.get("State").value,
-      Street: this.orderForm.get("Street").value,
-      PostalCode: this.orderForm.get("PostalCode").value,
-      AlternativeEmailAdress: this.orderForm.get("AlternativeEmailAdress")
-        .value,
-      AlternativePhoneNumber: this.orderForm.get("AlternativePhoneNumber")
-        .value,
-    };
 
-    this.orderService.placeOrder(this.cardID, orderModel).subscribe((res) => {
+    var orderModel: OrderModel = new OrderModel();
+    let result = this.mapper.map<OrderModel>(orderModel, this.orderForm);
+    console.log(result);
+
+    this.orderService.placeOrder(this.cardID, result).subscribe((res) => {
       this.toastr.success(
         "Your order has been placed!! Check your email for details"
       );

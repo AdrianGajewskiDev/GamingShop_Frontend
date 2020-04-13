@@ -7,6 +7,7 @@ import { ImageUploader } from "../../shared/HelperClasses/imageUploader";
 import { GameModel } from "../../shared/Models/game-model";
 import { gameTypes } from "../../shared/Models/game-types";
 import { platforms } from "src/app/shared/Models/platforms";
+import { FormsMapper } from "src/app/shared/HelperClasses/formsMapper";
 
 @Component({
   selector: "app-add-game",
@@ -27,7 +28,8 @@ export class AddGameComponent implements OnInit {
     private service: GameService,
     private router: Router,
     private imgUploader: ImageUploader,
-    private routes: ActivatedRoute
+    private routes: ActivatedRoute,
+    private mapper: FormsMapper
   ) {}
 
   ngOnInit() {
@@ -45,15 +47,14 @@ export class AddGameComponent implements OnInit {
 
   onSubmit() {
     this.submited = true;
-    this.newGameModel.Title = this.newGameForm.get("Title").value;
-    this.newGameModel.Description = this.newGameForm.get("Description").value;
-    this.newGameModel.Producent = this.newGameForm.get("Producent").value;
-    this.newGameModel.Pegi = this.newGameForm.get("Pegi").value;
-    this.newGameModel.Type = this.newGameForm.get("Type").value;
-    this.newGameModel.Platform = this.newGameForm.get("Platform").value;
-    this.newGameModel.Price = this.newGameForm.get("Price").value;
+
+    this.newGameModel = this.mapper.map<NewGameModel>(
+      this.newGameModel,
+      this.newGameForm
+    );
+
     this.newGameModel.ImageUrl = this.image.name;
-    this.newGameModel.LaunchDate = this.newGameForm.get("LaunchDate").value;
+
     this.service.addGame(this.newGameModel).subscribe(
       (res) => {
         this.imgUploader.uploadGameImage(this.image, res).subscribe(

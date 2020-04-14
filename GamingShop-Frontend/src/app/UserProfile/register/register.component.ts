@@ -12,6 +12,7 @@ import { UserModel } from "../../shared/Models/user.model";
 import { Router } from "@angular/router";
 import { UserLoginModel } from "../../shared/Models/user-login.model";
 import { ToastrService } from "ngx-toastr";
+import { FormsMapper } from "src/app/shared/HelperClasses/formsMapper";
 
 @Component({
   selector: "app-register",
@@ -23,7 +24,8 @@ export class RegisterComponent implements OnInit {
     private fb: FormBuilder,
     private service: UserService,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private mapper: FormsMapper
   ) {}
 
   @Input() passwordMisMatch;
@@ -57,12 +59,12 @@ export class RegisterComponent implements OnInit {
   async onSubmit() {
     this.submited = true;
 
-    var model: UserModel = {
-      UserName: this.registerForm.get("username").value,
-      Email: this.registerForm.get("email").value,
-      Password: this.registerForm.get("password").value,
-      PhoneNumber: this.registerForm.get("phoneNumber").value,
-    };
+    var model: UserModel = this.mapper.map<UserModel>(
+      new UserModel(),
+      this.registerForm
+    );
+
+    console.log(model);
 
     this.service.registerUser(model).subscribe(
       (res) => {
@@ -74,21 +76,17 @@ export class RegisterComponent implements OnInit {
         this.toastr.error("Registration Failed!!! Please try again");
       }
     );
-
     await this.delay(2000);
-
     if (this.registrationPassed == true) {
       var userLoginModel: UserLoginModel = {
-        Username: model.UserName,
+        Username: model.Username,
         Password: model.Password,
       };
-
       //if user successfully created then login him
       this.service.login(userLoginModel).subscribe((res: any) => {
         localStorage.setItem("token", res.token);
         this.service.isUserLoggedIn = true;
       });
-
       this.router.navigateByUrl("/games");
     }
   }

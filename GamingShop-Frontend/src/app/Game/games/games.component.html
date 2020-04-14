@@ -1,10 +1,53 @@
-<div class="container">
+<div class="container-fluid cst">
+  <app-loading-spinner *ngIf="dataLoaded == false"></app-loading-spinner>
   <div class="row pt-5">
-    <app-loading-spinner *ngIf="dataLoaded == false"></app-loading-spinner>
-    <app-game-item
-      *ngFor="let game of games"
-      class="col-md-4"
-      [gameDetails]="game"
-    ></app-game-item>
+    <div *ngIf="searching == true" class="games-row">
+      <h1>Xbox One Games</h1>
+      <div class="row">
+        <app-game-item
+          *ngFor="let game of games"
+          class="col-md-4"
+          [gameDetails]="game"
+        ></app-game-item>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="searching == false" class="row pt-5">
+    <div class="games-row col-md-12">
+      <h1>Xbox One Games</h1>
+      <div class="row">
+        <app-game-item
+          *ngFor="let game of gamesModel.XboxOneGames"
+          class="col-md-4"
+          [gameDetails]="game"
+        ></app-game-item>
+      </div>
+    </div>
+  </div>
+  <div class="row pt-5" *ngIf="searching == false">
+    <div class="games-row col-md-12">
+      <h1>Playstation 4 Games</h1>
+      <div class="row">
+        <app-game-item
+          *ngFor="let game of gamesModel.PlaystationGames"
+          class="col-md-4"
+          [gameDetails]="game"
+        >
+        </app-game-item>
+      </div>
+    </div>
+  </div>
+  <div class="row pt-5" *ngIf="searching == false">
+    <div class="games-row col-md-12">
+      <h1>PC Games</h1>
+      <div class="row">
+        <app-game-item
+          *ngFor="let game of gamesModel.PCGames"
+          class="col-md-4"
+          [gameDetails]="game"
+        >
+        </app-game-item>
+      </div>
+    </div>
   </div>
 </div>

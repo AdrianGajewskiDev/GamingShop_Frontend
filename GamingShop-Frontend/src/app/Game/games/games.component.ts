@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { GameService } from "../../shared/Services/game.service";
 import { GameIndexModel } from "../../shared/Models/game-index-model";
+import { GamesIndexModel } from "src/app/shared/Models/games-index-model";
 
 @Component({
   selector: "app-games",
@@ -8,8 +9,10 @@ import { GameIndexModel } from "../../shared/Models/game-index-model";
   styleUrls: ["./games.component.css"],
 })
 export class GamesComponent implements OnInit {
+  public gamesModel: GamesIndexModel;
   public games: GameIndexModel[];
   searchQuery: string;
+  searching: boolean = false;
   dataLoaded = false;
   constructor(private service: GameService) {}
 
@@ -18,8 +21,9 @@ export class GamesComponent implements OnInit {
       this.searchQuery = JSON.parse(localStorage.getItem("searchQuery"));
 
     if (this.searchQuery == "" || this.searchQuery == undefined) {
-      this.games = this.getGames();
+      this.gamesModel = this.getGames();
     } else {
+      this.searching = true;
       this.service
         .getGamesBySearchQuery(this.searchQuery)
         .subscribe(
@@ -30,14 +34,16 @@ export class GamesComponent implements OnInit {
     localStorage.removeItem("searchQuery");
   }
 
-  getGames(): GameIndexModel[] {
-    let model: GameIndexModel[] = [];
+  getGames(): GamesIndexModel {
+    let model: GamesIndexModel = new GamesIndexModel();
 
     this.service.getGames().subscribe((response) => {
-      response.forEach((element) => {
-        model.push(element);
-        this.dataLoaded = true;
-      });
+      model.XboxOneGames = response.XboxOneGames;
+      model.PlaystationGames = response.PlaystationGames;
+      model.PCGames = response.PCGames;
+      console.log(response);
+
+      this.dataLoaded = true;
     });
 
     return model;

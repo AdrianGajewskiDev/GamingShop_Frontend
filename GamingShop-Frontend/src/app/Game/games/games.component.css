@@ -1,3 +1,11 @@
-.row {
-  min-height: 100vh !important;
+.games-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.cst {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
 }

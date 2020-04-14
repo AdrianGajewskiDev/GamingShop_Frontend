@@ -24,9 +24,13 @@ export class FormsMapper {
 
     for (let i = 0; i <= objPropertyNames.length; i++) {
       var object = objPropertyNames[i];
+
+      if (object != null) object = object.toUpperCase();
+
       this.values.forEach((element) => {
-        if (element.name != null && element.name == object) {
-          let propName = element.name;
+        if (element.name != null && element.name.toUpperCase() == object) {
+          let propName =
+            element.name.charAt(0).toUpperCase() + element.name.slice(1);
           this.newValues[propName] = element.value;
         }
       });

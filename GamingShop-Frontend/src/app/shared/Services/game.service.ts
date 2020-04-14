@@ -2,14 +2,14 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { GameModel } from "../Models/game-model";
 import { NewGameModel } from "../Models/newGame.model";
-import { GameIndexModel } from "../Models/game-index-model";
+import { GamesIndexModel } from "../Models/games-index-model";
 @Injectable()
 export class GameService {
   constructor(private http: HttpClient) {}
 
   URL = "https://localhost:44313/api";
   getGames() {
-    return this.http.get<GameIndexModel[]>(this.URL + "/Games/GetAll");
+    return this.http.get<GamesIndexModel>(this.URL + "/Games/GetAll");
   }
 
   getGamesBySearchQuery(query: string) {

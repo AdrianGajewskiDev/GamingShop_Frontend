@@ -4,10 +4,13 @@ export const gameTypes: string[] = [
   "Fighting",
   "FPS",
   "TPS",
+  "RPG",
   "Battle Royal",
   "Platforming",
   "Strategy",
   "Simulation",
   "Sport",
   "Casual",
+  "Survival-horror",
+  "Survival",
 ];

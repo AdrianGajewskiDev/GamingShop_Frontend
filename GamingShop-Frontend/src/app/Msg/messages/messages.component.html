@@ -28,7 +28,7 @@
           <tbody>
             <tr
               *ngFor="let msg of message"
-              [ngClass]="{ unread: msg.Read == false }"
+              [ngClass]="{ unread: msg.Read == false && type != 'by' }"
               (click)="goToDetails(msg.ID)"
             >
               <td>{{ msg.Sent }}</td>

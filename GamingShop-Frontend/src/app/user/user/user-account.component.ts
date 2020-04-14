@@ -46,7 +46,7 @@ export class UserAccountComponent implements OnInit {
       .subscribe(
         (res) => (
           (data.ID = res.ID),
-          (data.UserName = res.UserName),
+          (data.Username = res.Username),
           (data.Email = res.Email),
           (data.Password = res.Password),
           (data.PhoneNumber = res.PhoneNumber),
@@ -77,7 +77,7 @@ export class UserAccountComponent implements OnInit {
     let data_Email = this.formData.get("Email").value;
     let data_PhoneNumber = this.formData.get("PhoneNumber").value;
 
-    if (data_Username != "" && this.userData.UserName != data_Username) {
+    if (data_Username != "" && this.userData.Username != data_Username) {
       this.service.updateUsername(data_Username).subscribe((res) => {
         window.location.reload();
       });

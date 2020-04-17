@@ -6,4 +6,5 @@ export class UserModel {
   Password: string = "";
   EmailConfirmed?: boolean = false;
   ImageUrl?: string = "";
+  UserName: string = "";
 }

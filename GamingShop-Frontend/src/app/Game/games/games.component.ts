@@ -41,7 +41,6 @@ export class GamesComponent implements OnInit {
       model.XboxOneGames = response.XboxOneGames;
       model.PlaystationGames = response.PlaystationGames;
       model.PCGames = response.PCGames;
-      console.log(response);
 
       this.dataLoaded = true;
     });

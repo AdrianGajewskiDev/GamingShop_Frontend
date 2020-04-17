@@ -8,7 +8,10 @@
         <input type="text" formControlName="username" />
         <p
           class="text-danger"
-          *ngIf="loginForm.get('username').errors?.required"
+          *ngIf="
+            loginForm.get('username').touched &&
+            loginForm.get('username').errors?.required
+          "
         >
           Username is required
         </p>
@@ -18,7 +21,10 @@
         <input type="password" formControlName="password" />
         <p
           class="text-danger"
-          *ngIf="loginForm.get('password').errors?.required"
+          *ngIf="
+            loginForm.get('password').touched &&
+            loginForm.get('password').errors?.required
+          "
         >
           Password is required
         </p>

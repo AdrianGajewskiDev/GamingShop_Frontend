@@ -46,7 +46,7 @@ export class UserAccountComponent implements OnInit {
       .subscribe(
         (res) => (
           (data.ID = res.ID),
-          (data.Username = res.Username),
+          (data.UserName = res.UserName),
           (data.Email = res.Email),
           (data.Password = res.Password),
           (data.PhoneNumber = res.PhoneNumber),

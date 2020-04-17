@@ -2,7 +2,6 @@
   <app-loading-spinner *ngIf="dataLoaded == false"></app-loading-spinner>
   <div class="row pt-5">
     <div *ngIf="searching == true" class="games-row">
-      <h1>Xbox One Games</h1>
       <div class="row">
         <app-game-item
           *ngFor="let game of games"

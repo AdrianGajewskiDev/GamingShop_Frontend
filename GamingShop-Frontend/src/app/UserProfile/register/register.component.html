@@ -10,13 +10,19 @@
             <input type="email" formControlName="email" />
             <p
               class="text-danger"
-              *ngIf="registerForm.get('email').errors?.required"
+              *ngIf="
+                registerForm.get('email').touched &&
+                registerForm.get('email').errors?.required
+              "
             >
               Email addres is required
             </p>
             <p
               class="text-danger"
-              *ngIf="registerForm.get('email').errors?.pattern"
+              *ngIf="
+                registerForm.get('email').touched &&
+                registerForm.get('email').errors?.pattern
+              "
             >
               Invalid Email addres
             </p>
@@ -26,7 +32,10 @@
             <input type="text" formControlName="username" />
             <p
               class="text-danger"
-              *ngIf="registerForm.get('username').errors?.required"
+              *ngIf="
+                registerForm.get('username').touched &&
+                registerForm.get('username').errors?.required
+              "
             >
               Username is required
             </p>
@@ -36,13 +45,19 @@
             <input type="text" formControlName="phoneNumber" />
             <p
               class="text-danger"
-              *ngIf="registerForm.get('phoneNumber').errors?.required"
+              *ngIf="
+                registerForm.get('phoneNumber').touched &&
+                registerForm.get('phoneNumber').errors?.required
+              "
             >
               Phone number is required
             </p>
             <p
               class="text-danger"
-              *ngIf="registerForm.get('phoneNumber').errors?.minlength"
+              *ngIf="
+                registerForm.get('phoneNumber').touched &&
+                registerForm.get('phoneNumber').errors?.minlength
+              "
             >
               Phone number should be 9 characters long
             </p>
@@ -54,13 +69,19 @@
             <input type="password" formControlName="password" />
             <p
               class="text-danger"
-              *ngIf="registerForm.get('password').errors?.required"
+              *ngIf="
+                registerForm.get('password').touched &&
+                registerForm.get('password').errors?.required
+              "
             >
               Password is required
             </p>
             <p
               class="text-danger"
-              *ngIf="registerForm.get('password').errors?.minlength"
+              *ngIf="
+                registerForm.get('password').touched &&
+                registerForm.get('password').errors?.minlength
+              "
             >
               Password must be atleast 8 characters long
             </p>
@@ -70,13 +91,19 @@
             <input type="password" formControlName="confirmPassword" />
             <p
               class="text-danger"
-              *ngIf="registerForm.get('password').errors?.required"
+              *ngIf="
+                registerForm.get('password').touched &&
+                registerForm.get('password').errors?.required
+              "
             >
               Password is required
             </p>
             <p
               class="text-danger"
-              *ngIf="registerForm.errors?.passwordMisMatch"
+              *ngIf="
+                registerForm.get('confirmPassword').touched &&
+                registerForm.errors?.passwordMisMatch
+              "
             >
               Passwords does not match
             </p>

@@ -1,6 +1,6 @@
 import { GameIndexModel } from "./game-index-model";
 
-export class GamesIndexModel {
+export class GamesModel {
   XboxOneGames: GameIndexModel[];
   PlaystationGames: GameIndexModel[];
   PCGames: GameIndexModel[];

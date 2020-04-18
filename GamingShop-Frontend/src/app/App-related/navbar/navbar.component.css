@@ -60,3 +60,7 @@
 .dropdown-item {
   color: #03a9f4;
 }
+
+.nav-link {
+  cursor: pointer;
+}

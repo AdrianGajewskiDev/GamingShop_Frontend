@@ -43,6 +43,8 @@ import { MessagesComponent } from "./Msg/messages/messages.component";
 import { MessageComponent } from "./Msg/message/message.component";
 import { MessageDetailsComponent } from "./Msg/message-details/message-details.component";
 import { FormsMapper } from "./shared/HelperClasses/formsMapper";
+import { CacheInterceptor } from "./shared/Interceptors/cache-interceptor";
+import { CacheService } from "./shared/Services/cache.service";
 
 @NgModule({
   declarations: [
@@ -86,9 +88,15 @@ import { FormsMapper } from "./shared/HelperClasses/formsMapper";
     UserService,
     CartService,
     OrderService,
+    CacheService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthorizationInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CacheInterceptor,
       multi: true,
     },
     ImageUploader,

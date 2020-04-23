@@ -52,7 +52,6 @@ export class GamesComponent implements OnInit {
   randomizeResult(array: GameIndexModel[]): GameIndexModel[] {
     let min = GUID.getRandomNumber(0, array.length);
     let max = min + 3;
-    console.log(`min : ${min}, max: ${max}`);
 
     if (max < array.length)
       return array.sort((a, b) => a.Price - b.Price).slice(min, max);

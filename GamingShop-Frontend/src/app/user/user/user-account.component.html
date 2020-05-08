@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid">
   <div class="row" style="height: 83vh;">
     <div
       class="col-md-3 d-flex align-items-center justify-content-center imgcs"
@@ -73,5 +73,88 @@
         </div>
       </div>
     </form>
+  </div>
+</div> -->
+
+<div class="container-fluid">
+  <div class="row">
+    <div
+      class="col-md-3 col-sm-12 d-flex align-items-center justify-content-center p-5 imgcs"
+    >
+      <img
+        [src]="imagePath"
+        style="min-height: 25vh;"
+        alt="user profile image"
+      />
+      <div class="form-group input-box">
+        <label for="file-cs">Upload Profile Image</label>
+        <input
+          type="file"
+          class="form-control"
+          (change)="onUploadImageChange($event)"
+          id="file-cs"
+        />
+      </div>
+    </div>
+    <div class="col-md-9 col-sm-12">
+      <form
+        (ngSubmit)="saveChanges()"
+        [formGroup]="formData"
+        id="account-details-container"
+      >
+        <div class="account-details-content">
+          <div class="account-details-item">
+            <label for="Username">Username</label>
+            <input
+              type="text"
+              [value]="userData.UserName"
+              formControlName="Username"
+              (focus)="toggleBtn()"
+              (blur)="onBlurMethod()"
+            />
+          </div>
+          <div class="account-details-item">
+            <label for="Username">Email</label>
+            <input
+              type="text"
+              [value]="userData.Email"
+              formControlName="Email"
+              (focus)="toggleBtn()"
+              (blur)="onBlurMethod()"
+            />
+            <p class="text-danger" *ngIf="userData.EmailConfirmed == false">
+              Yout haven't confirmed your email yet!!!
+            </p>
+          </div>
+          <div class="account-details-item">
+            <label for="Username">Phone number</label>
+            <input
+              type="text"
+              [value]="userData.PhoneNumber"
+              formControlName="PhoneNumber"
+              (focus)="toggleBtn()"
+              (blur)="onBlurMethod()"
+            />
+          </div>
+          <div class="account-details-item">
+            <label for="Username">Password</label>
+            <input type="password" [value]="userData.Password" />
+          </div>
+          <div class="buttons">
+            <div *ngIf="showSaveChangesBtn" class="btn-save-changes">
+              <button type="submit">Save Changes</button>
+            </div>
+            <div class="buttons-group">
+              <button (click)="goToCart()">Show Cart</button>
+              <button (click)="goToLatestOrders()">Latest Orders</button>
+            </div>
+            <div class="buttons-group">
+              <button (click)="goToMySales()">My Sales</button>
+              <button (click)="addGame()">Add Game</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
 </div>

@@ -1,5 +1,5 @@
 export class UserModel {
-  ID?: number = 0;
+  ID?: string = "";
   Username: string = "";
   Email: string = "";
   PhoneNumber: string = "";

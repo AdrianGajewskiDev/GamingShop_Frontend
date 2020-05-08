@@ -36,7 +36,7 @@ export class UserService {
   }
 
   getUserProfile() {
-    return this.http.get<UserModel>(this.URL + "/UserProfile").pipe();
+    return this.http.get<UserModel>(this.URL + "/UserProfile");
   }
 
   updateUsername(username: string) {

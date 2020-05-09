@@ -3,6 +3,7 @@ import { GameModel } from "../../shared/Models/game-model";
 import { GameService } from "../../shared/Services/game.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { FormsMapper } from "src/app/shared/HelperClasses/formsMapper";
 
 @Component({
   selector: "app-update-game",
@@ -19,7 +20,8 @@ export class UpdateGameComponent implements OnInit {
     private gameService: GameService,
     private routes: ActivatedRoute,
     private builder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private mapper: FormsMapper
   ) {
     this.routes.params.subscribe((param) => {
       this.gameID = param["gameID"];
@@ -57,16 +59,7 @@ export class UpdateGameComponent implements OnInit {
   }
 
   buildModel(form: FormGroup): GameModel {
-    let model = new GameModel();
-
-    model.Title = form.get("Title").value;
-    model.Description = form.get("Description").value;
-    model.Producent = form.get("Producent").value;
-    model.Pegi = form.get("Pegi").value;
-    model.LaunchDate = form.get("LaunchDate").value;
-    model.Type = form.get("Type").value;
-    model.Platform = form.get("Platform").value;
-    model.Price = form.get("Price").value;
+    let model = this.mapper.map<GameModel>(new GameModel(), this.formGroup);
     model.ID = this.gameID;
 
     return model;

@@ -53,3 +53,13 @@
 .form-invalid::placeholder {
   color: red !important;
 }
+
+@media only screen and (max-width: 750px) {
+  .container {
+    padding: 10px 0 !important;
+  }
+
+  .form {
+    width: 100% !important;
+  }
+}

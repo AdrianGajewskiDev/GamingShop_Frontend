@@ -13,6 +13,7 @@ import { Router } from "@angular/router";
 import { UserLoginModel } from "../../shared/Models/user-login.model";
 import { ToastrService } from "ngx-toastr";
 import { FormsMapper } from "src/app/shared/HelperClasses/formsMapper";
+import { RegisterModel } from "src/app/shared/Models/register.model";
 
 @Component({
   selector: "app-register",
@@ -31,23 +32,22 @@ export class RegisterComponent implements OnInit {
   @Input() passwordMisMatch;
 
   submited = false;
-  registrationPassed = false;
   registerForm: FormGroup;
 
   ngOnInit() {
     this.registerForm = this.fb.group(
       {
-        email: [
+        Email: [
           "",
           [
             Validators.required,
-            Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$"),
+            Validators.pattern("^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$"),
           ],
         ],
-        username: ["", [Validators.required]],
-        phoneNumber: ["", [Validators.required, Validators.minLength(9)]],
-        password: ["", [Validators.required, Validators.minLength(8)]],
-        confirmPassword: ["", [Validators.required, Validators.minLength(8)]],
+        UserName: ["", [Validators.required]],
+        PhoneNumber: ["", [Validators.required, Validators.minLength(9)]],
+        Password: ["", [Validators.required, Validators.minLength(8)]],
+        ConfirmPassword: ["", [Validators.required, Validators.minLength(8)]],
       },
       { validators: PasswordMisMatch }
     );
@@ -59,8 +59,8 @@ export class RegisterComponent implements OnInit {
   async onSubmit() {
     this.submited = true;
 
-    var model: UserModel = this.mapper.map<UserModel>(
-      new UserModel(),
+    var model: RegisterModel = this.mapper.map<RegisterModel>(
+      new RegisterModel(),
       this.registerForm
     );
 
@@ -68,26 +68,13 @@ export class RegisterComponent implements OnInit {
 
     this.service.registerUser(model).subscribe(
       (res) => {
-        this.registrationPassed = true;
+        this.router.navigateByUrl("/login");
+        localStorage.setItem("registration", "Success");
       },
       (error) => {
-        this.registrationPassed = false;
         this.submited = false;
         this.toastr.error("Registration Failed!!! Please try again");
       }
     );
-    await this.delay(2000);
-    if (this.registrationPassed == true) {
-      var userLoginModel: UserLoginModel = {
-        Username: model.Username,
-        Password: model.Password,
-      };
-      //if user successfully created then login him
-      this.service.login(userLoginModel).subscribe((res: any) => {
-        localStorage.setItem("token", res.token);
-        this.service.isUserLoggedIn = true;
-      });
-      this.router.navigateByUrl("/games");
-    }
   }
 }

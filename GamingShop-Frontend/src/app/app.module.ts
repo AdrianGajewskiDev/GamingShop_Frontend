@@ -45,6 +45,7 @@ import { MessageDetailsComponent } from "./Msg/message-details/message-details.c
 import { FormsMapper } from "./shared/HelperClasses/formsMapper";
 import { CacheInterceptor } from "./shared/Interceptors/cache-interceptor";
 import { CacheService } from "./shared/Services/cache.service";
+import { RouterExtService } from "./shared/Services/routerExt.service";
 
 @NgModule({
   declarations: [
@@ -89,6 +90,7 @@ import { CacheService } from "./shared/Services/cache.service";
     CartService,
     OrderService,
     CacheService,
+    RouterExtService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthorizationInterceptor,

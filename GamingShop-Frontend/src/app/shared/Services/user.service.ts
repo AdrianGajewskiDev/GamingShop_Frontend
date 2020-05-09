@@ -6,6 +6,7 @@ import { UserLoginModel } from "../Models/user-login.model";
 import { NewPasswordModel } from "../Models/newPassword.mode";
 import { SaleModel } from "../Models/sale.model";
 import { map } from "rxjs/operators";
+import { RegisterModel } from "../Models/register.model";
 
 @Injectable()
 export class UserService {
@@ -27,7 +28,7 @@ export class UserService {
   }
 
   //#region api calls methods
-  registerUser(model: UserModel) {
+  registerUser(model: UserModel | RegisterModel) {
     return this.http.post<UserModel>(this.URL + "/User/register", model);
   }
 

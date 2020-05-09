@@ -8,7 +8,9 @@ import {
 
 import { UserLoginModel } from "../../shared/Models/user-login.model";
 import { UserService } from "../../shared/Services/user.service";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute, RouterEvent } from "@angular/router";
+import { RouterExtService } from "src/app/shared/Services/routerExt.service";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-login",
@@ -19,13 +21,29 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private service: UserService,
-    private router: Router
+    private router: Router,
+    private routerExt: RouterExtService,
+    private toastr: ToastrService
   ) {}
 
   loginForm: FormGroup;
   showError: boolean;
 
   ngOnInit() {
+    let previousUrl = this.routerExt.getPreviousUrl();
+
+    if (
+      previousUrl &&
+      previousUrl === "/register" &&
+      localStorage.getItem("registration") === "Success"
+    ) {
+      this.toastr.info(
+        "Your account has been successfully created!! You can now sign in"
+      );
+
+      localStorage.removeItem("registration");
+    }
+
     this.loginForm = this.fb.group({
       username: ["", [Validators.required]],
       password: ["", [Validators.required, Validators.minLength(8)]],

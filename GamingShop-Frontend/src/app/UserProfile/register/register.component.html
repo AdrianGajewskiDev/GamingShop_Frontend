@@ -1,18 +1,18 @@
 <div class="container p-5">
   <app-loading-spinner *ngIf="submited == true"></app-loading-spinner>
   <div class="row">
-    <div class="col-md-8 offset-2">
+    <div class="col-md-8 offset-md-2">
       <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" id="form">
         <h2>Create Account</h2>
         <div class="form-left">
           <div class="input-box">
             <label>Email</label>
-            <input type="email" formControlName="email" />
+            <input type="email" formControlName="Email" />
             <p
               class="text-danger"
               *ngIf="
-                registerForm.get('email').touched &&
-                registerForm.get('email').errors?.required
+                registerForm.get('Email').touched &&
+                registerForm.get('Email').errors?.required
               "
             >
               Email addres is required
@@ -20,34 +20,34 @@
             <p
               class="text-danger"
               *ngIf="
-                registerForm.get('email').touched &&
-                registerForm.get('email').errors?.pattern
+                registerForm.get('Email').touched &&
+                registerForm.get('Email').errors?.pattern
               "
             >
               Invalid Email addres
             </p>
           </div>
           <div class="input-box">
-            <label>Username</label>
-            <input type="text" formControlName="username" />
+            <label>UserName</label>
+            <input type="text" formControlName="UserName" />
             <p
               class="text-danger"
               *ngIf="
-                registerForm.get('username').touched &&
-                registerForm.get('username').errors?.required
+                registerForm.get('UserName').touched &&
+                registerForm.get('UserName').errors?.required
               "
             >
-              Username is required
+              UserName is required
             </p>
           </div>
           <div class="input-box">
             <label>Phone Number</label>
-            <input type="text" formControlName="phoneNumber" />
+            <input type="text" formControlName="PhoneNumber" />
             <p
               class="text-danger"
               *ngIf="
-                registerForm.get('phoneNumber').touched &&
-                registerForm.get('phoneNumber').errors?.required
+                registerForm.get('PhoneNumber').touched &&
+                registerForm.get('PhoneNumber').errors?.required
               "
             >
               Phone number is required
@@ -55,8 +55,8 @@
             <p
               class="text-danger"
               *ngIf="
-                registerForm.get('phoneNumber').touched &&
-                registerForm.get('phoneNumber').errors?.minlength
+                registerForm.get('PhoneNumber').touched &&
+                registerForm.get('PhoneNumber').errors?.minlength
               "
             >
               Phone number should be 9 characters long
@@ -66,12 +66,12 @@
         <div class="form-right">
           <div class="input-box">
             <label>Password</label>
-            <input type="password" formControlName="password" />
+            <input type="password" formControlName="Password" />
             <p
               class="text-danger"
               *ngIf="
-                registerForm.get('password').touched &&
-                registerForm.get('password').errors?.required
+                registerForm.get('Password').touched &&
+                registerForm.get('Password').errors?.required
               "
             >
               Password is required
@@ -79,8 +79,8 @@
             <p
               class="text-danger"
               *ngIf="
-                registerForm.get('password').touched &&
-                registerForm.get('password').errors?.minlength
+                registerForm.get('Password').touched &&
+                registerForm.get('Password').errors?.minlength
               "
             >
               Password must be atleast 8 characters long
@@ -88,12 +88,12 @@
           </div>
           <div class="input-box">
             <label>Confirm Password</label>
-            <input type="password" formControlName="confirmPassword" />
+            <input type="password" formControlName="ConfirmPassword" />
             <p
               class="text-danger"
               *ngIf="
-                registerForm.get('password').touched &&
-                registerForm.get('password').errors?.required
+                registerForm.get('Password').touched &&
+                registerForm.get('Password').errors?.required
               "
             >
               Password is required
@@ -101,7 +101,7 @@
             <p
               class="text-danger"
               *ngIf="
-                registerForm.get('confirmPassword').touched &&
+                registerForm.get('ConfirmPassword').touched &&
                 registerForm.errors?.passwordMisMatch
               "
             >
